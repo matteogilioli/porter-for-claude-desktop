@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><title>Porter</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8906A"/><stop offset="1" stop-color="#C85E3B"/></linearGradient>
+<linearGradient id="uni" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#433053"/><stop offset="1" stop-color="#2F2039"/></linearGradient>
+<linearGradient id="capg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E3560"/><stop offset="1" stop-color="#382643"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.45"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<clipPath id="sq"><rect x="16" y="16" width="224" height="224" rx="52"/></clipPath>
+</defs>
+<rect x="16" y="16" width="224" height="224" rx="52" fill="url(#bg)"/>
+<g clip-path="url(#sq)">
+  <!-- uniform -->
+  <path d="M40 256 V224 Q40 188 82 181 L111 177 H145 L174 181 Q216 188 216 224 V256 Z" fill="url(#uni)"/>
+  <!-- shirt -->
+  <path d="M111 177 L128 212 L145 177 Z" fill="#FFF4EA"/>
+  <!-- lapels -->
+  <path d="M111 177 L96 183 L119 226 L128 212 Z" fill="#57406B"/>
+  <path d="M145 177 L160 183 L137 226 L128 212 Z" fill="#57406B"/>
+  <circle cx="128" cy="238" r="4.5" fill="#E8B866"/>
+</g>
+<!-- neck -->
+<path d="M115 148 H141 V172 Q141 180 128 182 Q115 180 115 172 Z" fill="#F2D3C0"/>
+<path d="M115 152 H141 V162 Q128 170 115 162 Z" fill="#E2B9A3"/>
+<!-- head -->
+<circle cx="128" cy="126" r="33" fill="#FFF4EA"/>
+<!-- cap -->
+<g transform="rotate(-8 128 98)">
+  <path d="M102 84 Q102 72 114 72 H142 Q154 72 154 84 L157 104 H99 Z" fill="url(#capg)"/>
+  <path d="M106 80 Q107 76 112 76 H128" fill="none" stroke="#fff" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round"/>
+  <rect x="100" y="92" width="56" height="5" rx="2.5" fill="#E8B866"/>
+  <rect x="93" y="101" width="70" height="10" rx="5" fill="#2A1C33"/>
+</g>
+<!-- pin -->
+<circle cx="167" cy="208" r="14.5" fill="#E8B866"/>
+<circle cx="167" cy="208" r="12" fill="#FFF4EA"/>
+<g stroke="#D97757" stroke-width="3.4" stroke-linecap="round"><line x1="167" y1="208" x2="167.00" y2="200.50"/><line x1="167" y1="208" x2="173.50" y2="204.25"/><line x1="167" y1="208" x2="173.50" y2="211.75"/><line x1="167" y1="208" x2="167.00" y2="215.50"/><line x1="167" y1="208" x2="160.50" y2="211.75"/><line x1="167" y1="208" x2="160.50" y2="204.25"/></g>
+<!-- glass edge -->
+<rect x="17" y="17" width="222" height="222" rx="51" fill="none" stroke="url(#edge)" stroke-width="2"/>
+</svg>

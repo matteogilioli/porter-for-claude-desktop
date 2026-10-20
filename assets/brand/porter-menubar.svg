@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="18" height="18"><title>Porter</title>
+<g fill="#000" fill-rule="evenodd">
+  <!-- shoulders with a V-neck cut -->
+  <path d="M18 180 V158 Q18 132 52 127 L74 124 L90 150 L106 124 L128 127 Q162 132 162 158 V180 Z"/>
+  <!-- head -->
+  <circle cx="90" cy="86" r="27"/>
+  <!-- cap, tilted, separated from the head by a thin gap -->
+  <g transform="rotate(-8 90 52)">
+    <path d="M68 40 Q68 28 80 28 H100 Q112 28 112 40 L115 56 H65 Z"/>
+    <rect x="58" y="58" width="64" height="11" rx="5.5"/>
+  </g>
+</g>
+</svg>

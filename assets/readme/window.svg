@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 740" width="1200" height="740">
+  <!-- The main window, with made-up data: three sessions get selected, the action bar slides in,
+       "Move to…" is clicked and a confirmation appears. Mirrors MainWindow.swift. 9 s loop. -->
+  <defs>
+    <symbol id="i-archive" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="1.5" y="2.5" width="13" height="3.6" rx="1"/><path d="M2.8 6.1 V12.8 Q2.8 14 4 14 H12 Q13.2 14 13.2 12.8 V6.1"/><path d="M6.2 9 H9.8"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.5 8 H13 M8.8 3.8 L13 8 L8.8 12.2"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15 V8 L3 3 M8 8 L13 3 M3 3 V6.2 M3 3 H6.2 M13 3 V6.2 M13 3 H9.8"/></g></symbol>
+    <symbol id="i-chev-d" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.2 6 L8 10.8 L12.8 6"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 16 16"><circle cx="8" cy="8" r="4" fill="currentColor"/></symbol>
+    <symbol id="i-dots" viewBox="0 0 16 16"><g fill="currentColor"><circle cx="2.6" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13.4" cy="8" r="1.5"/></g></symbol>
+    <symbol id="i-folder" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" d="M1.5 4 Q1.5 2.8 2.7 2.8 H6 L7.4 4.4 H13.3 Q14.5 4.4 14.5 5.6 V12.3 Q14.5 13.5 13.3 13.5 H2.7 Q1.5 13.5 1.5 12.3 Z M1.5 6.4 H14.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M8 2.5 V13.5 M2.5 8 H13.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6.8" cy="6.8" r="4.6"/><path d="M10.2 10.2 L14.2 14.2"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4 H14 M6 4 V2.4 H10 V4 M3.6 4 L4.4 14 H11.6 L12.4 4 M6.6 6.8 V11.4 M9.4 6.8 V11.4"/></g></symbol>
+    <symbol id="i-turn" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M3 2.5 V7.5 Q3 9.8 5.3 9.8 H13 M10 6.8 L13 9.8 L10 12.8"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M6.6 2.3 Q8 0.1 9.4 2.3 L15.1 12.4 Q16.3 14.6 13.8 14.6 H2.2 Q-0.3 14.6 0.9 12.4 Z M7.15 5.2 H8.85 L8.55 10.1 H7.45 Z M8 11 A1.05 1.05 0 1 0 8 13.1 A1.05 1.05 0 1 0 8 11 Z"/></symbol>
+    <filter id="drop" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#2B1A12" flood-opacity="0.28"/>
+    </filter>
+    <filter id="bar" x="-10%" y="-60%" width="120%" height="260%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <linearGradient id="p-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8906A"/><stop offset="1" stop-color="#C85E3B"/></linearGradient>
+    <linearGradient id="p-uni" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#433053"/><stop offset="1" stop-color="#2F2039"/></linearGradient>
+    <clipPath id="p-sq"><rect x="16" y="16" width="224" height="224" rx="52"/></clipPath>
+    <clipPath id="win"><rect x="40" y="30" width="1120" height="680" rx="14"/></clipPath>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif; }
+      .serif { font-family: "New York", ui-serif, "Iowan Old Style", Georgia, serif; }
+      .sel1 { animation: sel1 9s infinite; } @keyframes sel1 { 0%, 10% { opacity: 0; } 12%, 78% { opacity: 1; } 82%, 100% { opacity: 0; } }
+      .sel2 { animation: sel2 9s infinite; } @keyframes sel2 { 0%, 17% { opacity: 0; } 19%, 78% { opacity: 1; } 82%, 100% { opacity: 0; } }
+      .sel3 { animation: sel3 9s infinite; } @keyframes sel3 { 0%, 24% { opacity: 0; } 26%, 78% { opacity: 1; } 82%, 100% { opacity: 0; } }
+      .bar { animation: bar 9s infinite; }
+      @keyframes bar { 0%, 11% { transform: translateY(90px); opacity: 0; } 15%, 60% { transform: translateY(0); opacity: 1; } 64%, 100% { transform: translateY(90px); opacity: 0; } }
+      .count1 { animation: c1 9s infinite; } @keyframes c1 { 0%, 18% { opacity: 1; } 19%, 100% { opacity: 0; } }
+      .count2 { animation: c2 9s infinite; } @keyframes c2 { 0%, 18% { opacity: 0; } 19%, 25% { opacity: 1; } 26%, 100% { opacity: 0; } }
+      .count3 { animation: c3 9s infinite; } @keyframes c3 { 0%, 25% { opacity: 0; } 26%, 100% { opacity: 1; } }
+      .cursor { animation: cursor 9s infinite; }
+      @keyframes cursor {
+        0% { transform: translate(620px, 520px); }
+        10% { transform: translate(410px, 355px); }
+        17% { transform: translate(410px, 425px); }
+        24% { transform: translate(410px, 495px); }
+        40% { transform: translate(1010px, 640px); }
+        52%, 55% { transform: translate(1010px, 640px) scale(0.85); }
+        58%, 100% { transform: translate(1010px, 640px); }
+      }
+      .press { animation: press 9s infinite; } @keyframes press { 0%, 51% { opacity: 0; } 53%, 57% { opacity: 0.35; } 59%, 100% { opacity: 0; } }
+      .toast { animation: toast 9s infinite; }
+      @keyframes toast { 0%, 60% { transform: translateY(-30px); opacity: 0; } 64%, 86% { transform: translateY(0); opacity: 1; } 90%, 100% { transform: translateY(-30px); opacity: 0; } }
+      .dnd { animation: dnd 9s infinite; } @keyframes dnd { 0%, 100% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .sel1, .sel2, .sel3, .count3 { opacity: 1; } .count1, .count2, .toast { opacity: 0; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="740" rx="22" fill="#E9DFD3"/>
+  <g filter="url(#drop)"><rect x="40" y="30" width="1120" height="680" rx="14" fill="#F5F0E8"/></g>
+
+  <g clip-path="url(#win)">
+    <!-- Sidebar -->
+    <rect x="40" y="30" width="270" height="680" fill="#FBF7F1"/>
+    <rect x="310" y="30" width="1" height="680" fill="#E7DDD1"/>
+    <circle cx="62" cy="52" r="6" fill="#FF5F57"/><circle cx="82" cy="52" r="6" fill="#FEBC2E"/><circle cx="102" cy="52" r="6" fill="#28C840"/>
+    <g transform="translate(56 82) scale(0.15)">
+      <rect x="16" y="16" width="224" height="224" rx="52" fill="url(#p-bg)"/>
+      <g clip-path="url(#p-sq)"><path d="M40 256 V224 Q40 188 82 181 L111 177 H145 L174 181 Q216 188 216 224 V256 Z" fill="url(#p-uni)"/><path d="M111 177 L128 212 L145 177 Z" fill="#FFF4EA"/></g>
+      <circle cx="128" cy="126" r="33" fill="#FFF4EA"/>
+      <g transform="rotate(-8 128 98)"><path d="M102 84 Q102 72 114 72 H142 Q154 72 154 84 L157 104 H99 Z" fill="#433053"/><rect x="100" y="92" width="56" height="5" rx="2.5" fill="#E8B866"/><rect x="93" y="101" width="70" height="10" rx="5" fill="#2A1C33"/></g>
+    </g>
+    <text x="102" y="102" class="serif" font-size="19" font-weight="600" fill="#2B2522">Porter</text>
+    <text x="102" y="117" font-size="10" font-weight="500" fill="#857A70">for Claude Desktop</text>
+
+    <text x="62" y="152" font-size="10" font-weight="700" letter-spacing="0.8" fill="#857A70">RUNNING</text>
+    <rect x="52" y="162" width="246" height="58" rx="9" fill="#FFFDF9" stroke="#C96442"/>
+    <circle cx="68" cy="178" r="3.5" fill="#4F8A5B"/>
+    <text x="80" y="183" font-size="13" font-weight="700" fill="#2B2522">Work</text>
+    <rect x="252" y="170" width="36" height="18" rx="9" fill="#C2711F" fill-opacity="0.13"/><use href="#i-warn" x="260.0" y="174.0" width="9" height="9" color="#C2711F"/><text x="272.0" y="183" font-size="10" font-weight="700" fill="#C2711F">6</text>
+    <text x="80" y="207" font-size="9" fill="#857A70">5h</text><rect x="94" y="202" width="58" height="4" rx="2" fill="#C2452D"/><text x="186" y="207" font-size="9" font-weight="700" fill="#C2452D" text-anchor="end">100%</text>
+    <text x="196" y="207" font-size="9" fill="#857A70">7d</text><rect x="210" y="202" width="46" height="4" rx="2" fill="#EDE4D8"/><rect x="210" y="202" width="42" height="4" rx="2" fill="#C2711F"/><text x="290" y="207" font-size="9" font-weight="700" fill="#C2711F" text-anchor="end">92%</text>
+
+    <rect x="52" y="226" width="246" height="58" rx="9" fill="none"/>
+    <circle cx="68" cy="242" r="3.5" fill="#4F8A5B"/>
+    <text x="80" y="247" font-size="13" font-weight="700" fill="#2B2522">Personal</text>
+    <text x="80" y="271" font-size="9" fill="#857A70">5h</text><rect x="94" y="266" width="58" height="4" rx="2" fill="#EDE4D8"/><rect x="94" y="266" width="6" height="4" rx="2" fill="#4F8A5B"/><text x="186" y="271" font-size="9" font-weight="700" fill="#4F8A5B" text-anchor="end">8%</text>
+    <text x="196" y="271" font-size="9" fill="#857A70">7d</text><rect x="210" y="266" width="48" height="4" rx="2" fill="#EDE4D8"/><rect x="210" y="266" width="10" height="4" rx="2" fill="#4F8A5B"/><text x="290" y="271" font-size="9" font-weight="700" fill="#4F8A5B" text-anchor="end">21%</text>
+
+    <text x="62" y="316" font-size="10" font-weight="700" letter-spacing="0.8" fill="#857A70">CLOSED</text>
+    <circle cx="68" cy="338" r="3.5" fill="#B0A498"/>
+    <text x="80" y="343" font-size="13" font-weight="700" fill="#2B2522">Side project</text>
+    <text x="80" y="362" font-size="11" fill="#857A70">alex@studio.example</text>
+    <use href="#i-turn" x="72.0" y="377.0" width="11" height="11" color="#B0A498"/>
+    <text x="90" y="389" font-size="12" fill="#2B2522">Previous account</text>
+    <text x="90" y="406" font-size="11" fill="#857A70">3 open</text>
+
+    <rect x="40" y="670" width="270" height="1" fill="#E7DDD1"/>
+    <use href="#i-plus" x="62.0" y="684.0" width="11" height="11" color="#C96442"/><text x="78.0" y="694" font-size="12" font-weight="600" fill="#C96442">New Profile…</text>
+
+    <!-- Account header -->
+    <text x="346" y="104" class="serif" font-size="27" font-weight="600" fill="#2B2522">Work</text>
+    <circle cx="350" cy="124" r="3.5" fill="#4F8A5B"/>
+    <text x="360" y="128" font-size="12" fill="#857A70">alex@company.example · 14 open</text>
+    <text x="760" y="96" font-size="10" fill="#857A70">5h</text><rect x="782" y="89" width="160" height="5" rx="2.5" fill="#C2452D"/><text x="990" y="96" font-size="10" font-weight="700" fill="#C2452D" text-anchor="end">100%</text>
+    <text x="760" y="116" font-size="10" fill="#857A70">7d</text><rect x="782" y="109" width="160" height="5" rx="2.5" fill="#EDE4D8"/><rect x="782" y="109" width="147" height="5" rx="2.5" fill="#C2711F"/><text x="990" y="116" font-size="10" font-weight="700" fill="#C2711F" text-anchor="end">92%</text>
+    <rect x="1010" y="88" width="40" height="30" rx="8" fill="#FBF7F1" stroke="#E7DDD1"/><path d="M1023 97 h10 v10 M1033 97 l-9 9" stroke="#2B2522" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <use href="#i-dots" x="1080.0" y="95.0" width="16" height="16" color="#857A70"/>
+
+    <!-- Filters -->
+    <rect x="346" y="152" width="170" height="28" rx="14" fill="#C2711F"/><text x="362" y="171" font-size="12" font-weight="700" fill="#FFFFFF">Stopped by Limit</text><rect x="478" y="158" width="28" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.25"/><text x="492" y="170" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">6</text>
+    <rect x="524" y="152" width="88" height="28" rx="14" fill="#FFFDF9" stroke="#E7DDD1"/><text x="540" y="171" font-size="12" fill="#2B2522">Open</text><rect x="575" y="158" width="28" height="16" rx="8" fill="#EDE4D8"/><text x="589" y="170" font-size="11" font-weight="700" fill="#2B2522" text-anchor="middle">14</text>
+    <rect x="620" y="152" width="118" height="28" rx="14" fill="#FFFDF9" stroke="#E7DDD1"/><text x="636" y="171" font-size="12" fill="#2B2522">Archived</text><rect x="696" y="158" width="34" height="16" rx="8" fill="#EDE4D8"/><text x="713" y="170" font-size="11" font-weight="700" fill="#2B2522" text-anchor="middle">108</text>
+    <rect x="746" y="152" width="132" height="28" rx="14" fill="#FFFDF9" stroke="#E7DDD1"/><use href="#i-folder" x="760.0" y="159.0" width="14" height="14" color="#2B2522"/><text x="780.0" y="171" font-size="12" fill="#2B2522">All Projects</text><use href="#i-chev-d" x="863.2" y="162.0" width="9" height="9" color="#2B2522"/>
+    <rect x="920" y="152" width="200" height="28" rx="14" fill="#FFFDF9" stroke="#E7DDD1"/><use href="#i-search" x="936.0" y="159.0" width="13" height="13" color="#857A70"/><text x="956.0" y="171" font-size="12" fill="#B0A498">Search</text>
+    <rect x="311" y="196" width="849" height="1" fill="#E7DDD1"/>
+
+    <!-- Project: storefront -->
+    <text x="350" y="232" class="serif" font-size="15" font-weight="600" fill="#2B2522">storefront</text>
+    <rect x="432" y="219" width="22" height="17" rx="8.5" fill="#EDE4D8"/><text x="443" y="232" font-size="11" font-weight="700" fill="#857A70" text-anchor="middle">4</text>
+    <text x="464" y="232" font-size="11" fill="#B0A498">~/code/storefront</text>
+    <text x="1120" y="232" font-size="11" font-weight="700" fill="#C96442" text-anchor="end">Select All</text>
+    <rect x="346" y="244" width="778" height="280" rx="12" fill="#FFFDF9" stroke="#E7DDD1"/>
+
+    <!-- rows: y 244..314, 314..384, 384..454, 454..524 -->
+    <g>
+      <path class="sel1" d="M347 314 V256 Q347 245 358 245 H1112 Q1123 245 1123 256 V314 Z" fill="#F6E4DA"/>
+      <circle cx="376" cy="279" r="9" fill="none" stroke="#B0A498" stroke-width="1.5"/>
+      <g class="sel1"><circle cx="376" cy="279" r="9" fill="#C96442"/><path d="M371.5 279 l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <text x="400" y="275" font-size="13" font-weight="600" fill="#2B2522">Refactor checkout flow</text>
+      <text x="400.0" y="294" font-size="11" fill="#857A70">12 min ago ·</text><use href="#i-branch" x="476.6" y="285.0" width="10" height="10" color="#857A70"/><text x="489.6" y="294" font-size="11" fill="#857A70">checkout-v2</text>
+      <rect x="976" y="268" width="128" height="22" rx="11" fill="#C2711F" fill-opacity="0.13"/><use href="#i-warn" x="993.2" y="274.0" width="10" height="10" color="#C2711F"/><text x="1008.2" y="283" font-size="11" font-weight="600" fill="#C2711F">Limit reached</text>
+    </g>
+    <rect x="347" y="314" width="776" height="1" fill="#E7DDD1"/>
+    <g>
+      <rect class="sel2" x="347" y="315" width="776" height="69" fill="#F6E4DA"/>
+      <circle cx="376" cy="349" r="9" fill="none" stroke="#B0A498" stroke-width="1.5"/>
+      <g class="sel2"><circle cx="376" cy="349" r="9" fill="#C96442"/><path d="M371.5 349 l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <text x="400" y="345" font-size="13" font-weight="600" fill="#2B2522">Fix flaky payment tests</text>
+      <text x="400" y="364" font-size="11" fill="#857A70">40 min ago</text>
+      <rect x="976" y="338" width="128" height="22" rx="11" fill="#C2711F" fill-opacity="0.13"/><use href="#i-warn" x="993.2" y="344.0" width="10" height="10" color="#C2711F"/><text x="1008.2" y="353" font-size="11" font-weight="600" fill="#C2711F">Limit reached</text>
+    </g>
+    <rect x="347" y="384" width="776" height="1" fill="#E7DDD1"/>
+    <g>
+      <rect class="sel3" x="347" y="385" width="776" height="69" fill="#F6E4DA"/>
+      <circle cx="376" cy="419" r="9" fill="none" stroke="#B0A498" stroke-width="1.5"/>
+      <g class="sel3"><circle cx="376" cy="419" r="9" fill="#C96442"/><path d="M371.5 419 l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <text x="400" y="415" font-size="13" font-weight="600" fill="#2B2522">Add Apple Pay to cart</text>
+      <text x="400" y="434" font-size="11" fill="#857A70">1 h ago</text>
+      <rect x="976" y="408" width="128" height="22" rx="11" fill="#C2711F" fill-opacity="0.13"/><use href="#i-warn" x="993.2" y="414.0" width="10" height="10" color="#C2711F"/><text x="1008.2" y="423" font-size="11" font-weight="600" fill="#C2711F">Limit reached</text>
+    </g>
+    <rect x="347" y="454" width="776" height="1" fill="#E7DDD1"/>
+    <g>
+      <circle cx="376" cy="489" r="9" fill="none" stroke="#B0A498" stroke-width="1.5"/>
+      <text x="400" y="485" font-size="13" font-weight="600" fill="#2B2522">Write release notes</text>
+      <text x="400" y="504" font-size="11" fill="#857A70">2 min ago</text>
+      <rect x="1006" y="478" width="98" height="22" rx="11" fill="#4F8A5B" fill-opacity="0.13"/><use href="#i-dot" x="1017.2" y="484.0" width="10" height="10" color="#4F8A5B"/><text x="1032.2" y="493" font-size="11" font-weight="600" fill="#4F8A5B">Active now</text>
+    </g>
+
+    <!-- Project: api-server -->
+    <text x="350" y="562" class="serif" font-size="15" font-weight="600" fill="#2B2522">api-server</text>
+    <rect x="434" y="549" width="22" height="17" rx="8.5" fill="#EDE4D8"/><text x="445" y="562" font-size="11" font-weight="700" fill="#857A70" text-anchor="middle">2</text>
+    <text x="466" y="562" font-size="11" fill="#B0A498">~/code/api-server</text>
+    <rect x="346" y="574" width="778" height="70" rx="12" fill="#FFFDF9" stroke="#E7DDD1"/>
+    <circle cx="376" cy="609" r="9" fill="none" stroke="#B0A498" stroke-width="1.5"/>
+    <text x="400" y="605" font-size="13" font-weight="600" fill="#2B2522">Rate-limit the public API</text>
+    <text x="400" y="624" font-size="11" fill="#857A70">3 h ago</text>
+    <rect x="976" y="598" width="128" height="22" rx="11" fill="#C2711F" fill-opacity="0.13"/><use href="#i-warn" x="993.2" y="604.0" width="10" height="10" color="#C2711F"/><text x="1008.2" y="613" font-size="11" font-weight="600" fill="#C2711F">Limit reached</text>
+
+    <!-- Action bar -->
+    <g class="bar">
+      <g filter="url(#bar)"><rect x="346" y="616" width="778" height="54" rx="16" fill="#2B2522"/></g>
+      <text class="count1" x="368" y="648" font-size="13" font-weight="700" fill="#F5F0E8">1 selected</text>
+      <text class="count2" x="368" y="648" font-size="13" font-weight="700" fill="#F5F0E8">2 selected</text>
+      <text class="count3" x="368" y="648" font-size="13" font-weight="700" fill="#F5F0E8">3 selected</text>
+      <text x="460" y="648" font-size="12" fill="#F5F0E8" fill-opacity="0.7">Select All (6)</text>
+      <text x="560" y="648" font-size="12" fill="#F5F0E8" fill-opacity="0.7">Deselect All</text>
+      <rect x="756" y="626" width="92" height="34" rx="8" fill="#FFFFFF" fill-opacity="0.08"/><use href="#i-archive" x="770.0" y="636.0" width="13" height="13" color="#F5F0E8"/><text x="789.0" y="648" font-size="12" font-weight="600" fill="#F5F0E8">Archive</text>
+      <rect x="856" y="626" width="90" height="34" rx="8" fill="#FFFFFF" fill-opacity="0.08"/><use href="#i-trash" x="868.0" y="636.0" width="13" height="13" color="#EF7A62"/><text x="887.0" y="648" font-size="12" font-weight="600" fill="#EF7A62">Delete…</text>
+      <rect x="954" y="624" width="162" height="38" rx="8" fill="#C96442"/>
+      <rect class="press" x="954" y="624" width="162" height="38" rx="8" fill="#000"/>
+      <text x="1026.0" y="648" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">Move To…</text><use href="#i-arrow" x="1054.2" y="637.0" width="13" height="13" color="#FFFFFF"/>
+    </g>
+
+    <!-- Toast -->
+    <g class="toast">
+      <rect x="560" y="138" width="352" height="40" rx="20" fill="#FFFDF9" stroke="#E7DDD1"/>
+      <circle cx="584" cy="158" r="9" fill="#4F8A5B"/><path d="M579.5 158 l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <text x="602" y="163" font-size="12" font-weight="600" fill="#2B2522">3 sessions moved to Personal</text>
+      <text x="812" y="163" font-size="12" font-weight="700" fill="#C96442">Show Backups</text>
+    </g>
+  </g>
+
+  <!-- Cursor -->
+  <g class="cursor">
+    <path d="M0 0 L0 18 L5 13.5 L8.5 21 L11.5 19.7 L8 12.3 L14 12.3 Z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/>
+  </g>
+</svg>

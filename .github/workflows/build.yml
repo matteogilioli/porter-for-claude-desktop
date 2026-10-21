@@ -38,4 +38,4 @@ jobs:
         # The notes are written by hand in release-notes/, and Sparkle shows the same text.
         run: |
           gh release create "$GITHUB_REF_NAME" dist/Porter.dmg dist/appcast.xml \
-            --notes-file "release-notes/${GITHUB_REF_NAME#v}.md" --title "Porter for Claude Desktop ${GITHUB_REF_NAME#v}"
+            --notes-file "release-notes/${GITHUB_REF_NAME#v}.md" --title "Porter ${GITHUB_REF_NAME#v}"

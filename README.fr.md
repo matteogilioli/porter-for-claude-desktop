@@ -19,6 +19,7 @@
   <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-2B2522?logo=apple&logoColor=white">
   <img alt="Swift" src="https://img.shields.io/badge/Swift-5.9-C96442?logo=swift&logoColor=white">
   <img alt="10 languages" src="https://img.shields.io/badge/languages-10-433053">
+  <a href="https://matteogilioli.github.io/porter-for-claude-desktop/fr/"><img alt="Site web" src="https://img.shields.io/badge/website-porter-E8B866"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-4F8A5B"></a>
   <a href="https://github.com/sponsors/matteogilioli"><img alt="Sponsor" src="https://img.shields.io/badge/sponsor-♥-E8906A"></a>
 </p>

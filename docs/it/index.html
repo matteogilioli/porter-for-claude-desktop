@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porter for Claude Desktop: sposta le sessioni quando sei al limite</title>
+<meta name="description" content="App gratuita e open source per la barra dei menu del Mac. Quando un account Claude raggiunge il limite, Porter sposta le sessioni di Claude Code su un altro.">
+<link rel="canonical" href="https://matteogilioli.github.io/porter-for-claude-desktop/it/">
+<link rel="alternate" hreflang="en" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<link rel="alternate" hreflang="it" href="https://matteogilioli.github.io/porter-for-claude-desktop/it/">
+<link rel="alternate" hreflang="es" href="https://matteogilioli.github.io/porter-for-claude-desktop/es/">
+<link rel="alternate" hreflang="fr" href="https://matteogilioli.github.io/porter-for-claude-desktop/fr/">
+<link rel="alternate" hreflang="de" href="https://matteogilioli.github.io/porter-for-claude-desktop/de/">
+<link rel="alternate" hreflang="pt-BR" href="https://matteogilioli.github.io/porter-for-claude-desktop/pt-br/">
+<link rel="alternate" hreflang="zh-Hans" href="https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/">
+<link rel="alternate" hreflang="ja" href="https://matteogilioli.github.io/porter-for-claude-desktop/ja/">
+<link rel="alternate" hreflang="ko" href="https://matteogilioli.github.io/porter-for-claude-desktop/ko/">
+<link rel="alternate" hreflang="ru" href="https://matteogilioli.github.io/porter-for-claude-desktop/ru/">
+<link rel="alternate" hreflang="x-default" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<meta name="theme-color" content="#1c1420">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Porter for Claude Desktop">
+<meta property="og:title" content="Porter for Claude Desktop: sposta le sessioni quando sei al limite">
+<meta property="og:description" content="App gratuita e open source per la barra dei menu del Mac. Quando un account Claude raggiunge il limite, Porter sposta le sessioni di Claude Code su un altro.">
+<meta property="og:url" content="https://matteogilioli.github.io/porter-for-claude-desktop/it/">
+<meta property="og:image" content="https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="preload" href="../assets/fonts/gloock-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=8d1a0115">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Porter for Claude Desktop", "operatingSystem": "macOS 14 or later", "applicationCategory": "DeveloperApplication", "description": "App gratuita e open source per la barra dei menu del Mac. Quando un account Claude raggiunge il limite, Porter sposta le sessioni di Claude Code su un altro.", "url": "https://matteogilioli.github.io/porter-for-claude-desktop/it/", "downloadUrl": "https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg", "codeRepository": "https://github.com/matteogilioli/porter-for-claude-desktop", "license": "https://opensource.org/licenses/MIT", "inLanguage": "it", "image": "https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Matteo Gilioli", "url": "https://github.com/matteogilioli"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="menubar">
+  <a class="brand" href="./">
+    <img src="../assets/icon.png" width="28" height="28" alt="">
+    <span>Porter</span>
+  </a>
+  <nav class="menubar-nav" aria-label="Porter">
+    <a href="#how">Come funziona</a>
+    <a href="#profiles">Profili</a>
+    <a href="#usage">Utilizzo</a>
+    <a href="#install">Installazione</a>
+  </nav>
+  <div class="menubar-right">
+    <span class="status-item" aria-hidden="true"><svg viewBox="0 0 180 180" width="16" height="16"><g fill="currentColor" fill-rule="evenodd"><path d="M18 180V158q0-26 34-31l22-3 16 26 16-26 22 3q34 5 34 31v22z"/><circle cx="90" cy="86" r="27"/><g transform="rotate(-8 90 52)"><path d="M68 40q0-12 12-12h20q12 0 12 12l3 16H65z"/><rect x="58" y="58" width="64" height="11" rx="5.5"/></g></g></svg></span>
+    <time class="clock" aria-hidden="true"></time>
+    <details class="langs">
+      <summary aria-label="Lingua">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.75 10h14.5M10 2.75c2 2.1 2.9 4.5 2.9 7.25S12 15.15 10 17.25M10 2.75C8 4.85 7.1 7.25 7.1 10s.9 5.15 2.9 7.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Italiano</span>
+      </summary>
+      <ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../it/" hreflang="it" lang="it" aria-current="page">Italiano</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li><li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li></ul>
+    </details>
+    <a class="gh" href="https://github.com/matteogilioli/porter-for-claude-desktop" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="carry" id="carry" aria-labelledby="hero-title">
+  <div class="stage">
+    <h1 id="hero-title"><span>Raggiungi il limite.</span> <span class="accent">Tieni la conversazione.</span></h1>
+    <div class="hero-copy">
+      <p class="lead">Porter porta le tue sessioni di Claude Code da un account al limite di utilizzo a uno che ha ancora margine, così riprendi esattamente da dove Claude si era fermato.</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Scarica per Mac
+        </a>
+        <a class="button ghost" href="https://github.com/matteogilioli/porter-for-claude-desktop">Codice su GitHub</a>
+      </div>
+      <p class="meta">macOS 14 o successivo · gratuito e open source · 10 lingue</p>
+    </div>
+
+    <div class="deck" aria-label="Account e sessione di esempio" role="img">
+      <svg class="path" aria-hidden="true"><path class="path-track"/><path class="path-ink"/></svg>
+
+      <article class="account account-a" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">Lavoro</p><span class="badge warn">1 ferma per il limite</span></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b></div>
+        </div>
+        <div class="slot slot-a"></div>
+        <footer><span class="count-a" data-before="3 aperte" data-after="3 aperte">3 aperte</span></footer>
+      </article>
+
+      <article class="account account-b" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">Personale</p></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i class="b5" style="--v:12" data-tone="green"></i><b class="b5n">12%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b></div>
+        </div>
+        <div class="slot slot-b"></div>
+        <footer><span class="count-b" data-before="3 aperte" data-after="4 aperte">3 aperte</span></footer>
+      </article>
+
+      <article class="session" aria-hidden="true">
+        <img class="porter-ride" src="../assets/icon.png" width="34" height="34" alt="">
+        <div class="session-top">
+          <svg viewBox="0 0 16 16" width="14" height="14"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span class="session-project">api-server</span>
+        </div>
+        <p class="session-title">Riscrivi il middleware di autenticazione</p>
+        <p class="session-status">
+          <span class="status-error">You&#x27;ve hit your limit · resets 20:59</span>
+          <span class="status-ok">Pronta a continuare</span>
+        </p>
+      </article>
+
+      <p class="demo-note">Dati di esempio</p>
+      <ol class="steps">
+        <li>Claude ferma la sessione al limite.</li>
+        <li>Porter la porta su un account con margine.</li>
+        <li>Stessa conversazione, nuovo account.</li>
+      </ol>
+    </div>
+    <span class="scroll-hint" aria-hidden="true">Scorri</span>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="how-copy">
+    <h2 id="how-title">La conversazione non è mai appartenuta a un account.</h2>
+    <p>Claude Code tiene ogni conversazione in una sua cartella sul tuo Mac, condivisa da tutti gli account. A un account appartiene solo il breve elenco delle sessioni di Claude Desktop. Porter sposta la voce in quell&#x27;elenco, cancella l&#x27;errore del limite e porta con sé i worktree git che la sessione usa.</p>
+  </div>
+  <figure class="ledger" aria-hidden="true">
+    <div class="ledger-lists">
+      <div class="ledger-list">
+        <p class="ledger-label">Elenco sessioni di Lavoro</p>
+        <code>claude-code-sessions/work/…/</code>
+        <ul>
+          <li><code>local_3c91.json</code></li>
+          <li class="moving"><code>local_7f2a.json</code></li>
+          <li><code>local_b04e.json</code></li>
+        </ul>
+      </div>
+      <div class="ledger-arrow"><svg viewBox="0 0 120 24" preserveAspectRatio="none"><path d="M2 12h112m0 0-8-7m8 7-8 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/></svg></div>
+      <div class="ledger-list">
+        <p class="ledger-label">Elenco sessioni di Personale</p>
+        <code>claude-code-sessions/personal/…/</code>
+        <ul>
+          <li><code>local_91d0.json</code></li>
+          <li class="landing"><code>local_7f2a.json</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ledger-shelf">
+      <p class="ledger-label">Condivisa da tutti gli account</p>
+      <code>~/.claude/projects/api-server/7f2a….jsonl</code>
+      <span>La conversazione vera e propria</span>
+    </div>
+    <figcaption>Dati di esempio</figcaption>
+  </figure>
+  <ul class="how-notes">
+    <li>Prima di ogni modifica Porter crea un backup, e tutto ciò che elimina finisce nel Cestino.</li>
+    <li>Un Claude Desktop aperto tiene l&#x27;elenco in memoria, quindi Porter lo chiude prima e lo riapre dopo.</li>
+  </ul>
+</section>
+
+<section class="profiles" id="profiles" aria-labelledby="profiles-title">
+  <div class="profiles-copy">
+    <h2 id="profiles-title">Più Claude Desktop, uno accanto all&#x27;altro.</h2>
+    <p>Di solito Claude Desktop usa un account alla volta. Con Porter ogni profilo è un Claude Desktop a sé, con il suo accesso, le sue impostazioni e le sue sessioni, nel Dock e in ⌘-Tab come qualsiasi app. Quando un account si esaurisce, continui a lavorare nella finestra successiva.</p>
+    <p class="aside">Se vuoi, i link di Claude dal browser si aprono nel profilo che hai usato per ultimo.</p>
+  </div>
+  <div class="windows" aria-hidden="true">
+    <div class="win w1"><div class="win-bar"><i></i><i></i><i></i><span>Lavoro</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@work.example</p><div class="w-bar"><i style="--v:100" data-tone="red"></i><b>100%</b></div></aside><ul><li><span class="s-dot stop"></span><span class="s-title">Riscrivi il middleware di autenticazione</span><span class="pill stop">Limite raggiunto</span></li><li><span class="s-dot ok"></span><span class="s-title">Sistemare i test dei pagamenti</span><span class="pill ok">Pronta</span></li></ul></div></div>
+    <div class="win w2"><div class="win-bar"><i></i><i></i><i></i><span>Personale</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@home.example</p><div class="w-bar"><i style="--v:18" data-tone="green"></i><b>18%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">Aggiungere il tema scuro alle impostazioni</span><span class="pill ok">Pronta</span></li><li><span class="s-dot ok"></span><span class="s-title">Scrivere le note di rilascio</span><span class="pill ok">Pronta</span></li></ul></div></div>
+    <div class="win w3"><div class="win-bar"><i></i><i></i><i></i><span>Cliente</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@client.example</p><div class="w-bar"><i style="--v:7" data-tone="green"></i><b>7%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">Migrare l&#x27;API alla v2</span><span class="pill ok">Pronta</span></li><li><span class="s-dot ok"></span><span class="s-title">Sistemare i test dei pagamenti</span><span class="pill ok">Pronta</span></li></ul></div></div>
+  </div>
+  <p class="example-note">Dati di esempio</p>
+</section>
+
+<section class="usage" id="usage" aria-labelledby="usage-title">
+  <div class="panel" aria-label="Dati di esempio" role="img">
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">Lavoro</p></header>
+      <p class="mail">you@work.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b><time>oggi, 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b><time>28 ott, 07:00</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:22" data-tone="green"></i><b>22%</b><time>28 ott, 07:00</time></div>
+      </div>
+      <footer><span class="badge warn">1 ferma per il limite</span><a class="panel-move">Sposta 3 in Personale <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.5 8H13M8.8 3.8 13 8l-4.2 4.2"/></svg></a></footer>
+    </div>
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">Personale</p></header>
+      <p class="mail">you@home.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i class="live" style="--v:12" data-tone="green"></i><b class="live-n">12%</b><time>oggi, 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b><time>domani, 20:59</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:0" data-tone="green"></i><b>0%</b><time>domani, 20:59</time></div>
+      </div>
+      <footer><span>3 aperte</span><a class="panel-link">Sessioni <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 3.5 4.5 4.5L6 12.5"/></svg></a></footer>
+    </div>
+    <p class="example">Dati di esempio</p>
+  </div>
+  <div class="usage-copy">
+    <h2 id="usage-title">Tutti gli account a colpo d&#x27;occhio.</h2>
+    <p>Clicca sul facchino nella barra dei menu: ogni account mostra l&#x27;utilizzo a 5 ore e a 7 giorni, le sessioni ferme per un limite e un pulsante per spostarle dove c&#x27;è margine.</p>
+    <h3>Utilizzo in tempo reale, quando lo vuoi.</h3>
+    <p>Attiva Utilizzo in tempo reale e Porter chiede i dati a claude.ai ogni pochi minuti, con la sessione di ogni profilo, come fa la schermata dell&#x27;utilizzo di Claude. Vedi anche quando si azzera ogni limite e i limiti che valgono per un solo modello, come Fable.</p>
+  </div>
+</section>
+
+<section class="window" aria-labelledby="window-title">
+  <div class="window-copy">
+    <h2 id="window-title">Tutte le sessioni, in un&#x27;unica finestra.</h2>
+    <ul><li>Sessioni raggruppate per progetto, con ricerca e filtri</li><li>Spostale o copiale su un altro account, anche trascinandole</li><li>Archivia, ripristina ed elimina, con un backup prima di ogni modifica</li><li>Sposta la cartella di un progetto e ogni sessione che la usa la segue</li></ul>
+  </div>
+  <figure class="window-figure">
+    <img class="window-shot" src="../assets/window.svg" width="1200" height="740" loading="lazy" alt="La finestra principale di Porter: account nella barra laterale, sessioni raggruppate per progetto e una barra delle azioni con Archivia, Elimina e Sposta in">
+    <figcaption>Dati di esempio</figcaption>
+  </figure>
+</section>
+
+<section class="cli" aria-labelledby="cli-title">
+  <div class="cli-copy">
+    <h2 id="cli-title">E dalla riga di comando.</h2>
+    <p>La stessa app sposta le sessioni anche dai tuoi script.</p>
+  </div>
+  <pre class="terminal"><code><span class="line"><span class="prompt">$</span> <span class="nw">alias</span> <span class="arg-path">porter="/Applications/Porter for Claude Desktop.app/Contents/MacOS/Porter"</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--list</span> <span class="c"># account, profili e relativi elenchi di sessioni</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--dry-run</span> <span class="c"># cosa succederebbe, senza modificare niente</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--restart</span> <span class="c"># sposta, chiudendo e riaprendo Claude Desktop</span></span></code></pre>
+</section>
+
+<section class="install" id="install" aria-labelledby="install-title">
+  <h2 id="install-title">Si installa in un minuto.</h2>
+  <ol class="install-steps">
+    <li>
+      <h3>Scarica</h3>
+      <p>Scarica Porter.dmg, aprilo e trascina Porter in Applicazioni.</p>
+      <a class="button primary small" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">Porter.dmg</a>
+    </li>
+    <li>
+      <h3>Consenti l&#x27;apertura una volta</h3>
+      <p>Porter non è notarizzato, quindi macOS blocca la prima apertura. Apri Impostazioni di Sistema → Privacy e sicurezza e fai clic su «Apri comunque», oppure esegui:</p>
+      <div class="cmd"><code id="xattr">xattr -dr com.apple.quarantine "/Applications/Porter for Claude Desktop.app"</code><button type="button" class="copy" data-copy="xattr" data-done="Copiato">Copia</button></div>
+    </li>
+    <li>
+      <h3>Accedi e parti</h3>
+      <p>Clicca sul facchino nella barra dei menu, crea un profilo per ogni account ed effettua l&#x27;accesso. Da lì in poi Porter si aggiorna da solo.</p>
+    </li>
+  </ol>
+  <aside class="honest" aria-labelledby="honest-title">
+    <h3 id="honest-title">Da sapere</h3>
+    <ul>
+      <li>Porter non è ufficiale e non è affiliato ad Anthropic. Lavora con i file di Claude Desktop, che non sono documentati e possono cambiare a ogni aggiornamento.</li>
+      <li>Lavora con ciò che Claude Desktop conserva sul tuo Mac: le sessioni della scheda Code. Le chat restano sui server di Anthropic, legate al loro account.</li>
+      <li>Usa solo account di tua proprietà e rispetta i termini del tuo piano Claude.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+  <img src="../assets/icon.png" width="112" height="112" alt="">
+  <h2 id="close-title">Porta avanti la conversazione.</h2>
+  <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">Scarica per Mac</a>
+  <p class="meta">Richiede macOS 14 o successivo e Claude Desktop.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Links">
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop">GitHub</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/releases">Release</a>
+    <a href="https://github.com/sponsors/matteogilioli">Sostieni</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/blob/main/LICENSE">Licenza MIT</a>
+  </nav>
+  <p>Claude è un marchio di Anthropic. Porter è un progetto indipendente.</p>
+</footer>
+
+<script src="../assets/site.js?v=db3989b0" defer></script>
+</body>
+</html>

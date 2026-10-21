@@ -861,7 +861,7 @@ private struct MoveSheet: View {
                         OptionRow(title: running ? tr("Restart %@ to load them", target.dataDir.label)
                                                  : tr("Open %@ afterwards", target.dataDir.label),
                                   note: effects.restartForced
-                                      ? tr("Moving within %@ archives the sessions in the same app, so it is always closed and reopened.", target.dataDir.label)
+                                      ? tr("Both accounts are in %@, so it is always closed and reopened to archive the originals.", target.dataDir.label)
                                       : running ? tr("%@ is open and keeps its session list in memory: it is closed and reopened so the moved sessions show up.", target.dataDir.label)
                                                 : tr("Opens %@ when the move is done.", target.dataDir.label),
                                   isOn: effects.restartForced ? .constant(true) : $restart, enabled: !effects.restartForced)

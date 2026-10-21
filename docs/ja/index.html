@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porter for Claude Desktop：上限に達したらセッションを別のアカウントへ</title>
+<meta name="description" content="無料・オープンソースの Mac メニューバーアプリ。Claude のアカウントが使用上限に達したら、Porter が Claude Code のセッションを別のアカウントに移動します。">
+<link rel="canonical" href="https://matteogilioli.github.io/porter-for-claude-desktop/ja/">
+<link rel="alternate" hreflang="en" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<link rel="alternate" hreflang="it" href="https://matteogilioli.github.io/porter-for-claude-desktop/it/">
+<link rel="alternate" hreflang="es" href="https://matteogilioli.github.io/porter-for-claude-desktop/es/">
+<link rel="alternate" hreflang="fr" href="https://matteogilioli.github.io/porter-for-claude-desktop/fr/">
+<link rel="alternate" hreflang="de" href="https://matteogilioli.github.io/porter-for-claude-desktop/de/">
+<link rel="alternate" hreflang="pt-BR" href="https://matteogilioli.github.io/porter-for-claude-desktop/pt-br/">
+<link rel="alternate" hreflang="zh-Hans" href="https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/">
+<link rel="alternate" hreflang="ja" href="https://matteogilioli.github.io/porter-for-claude-desktop/ja/">
+<link rel="alternate" hreflang="ko" href="https://matteogilioli.github.io/porter-for-claude-desktop/ko/">
+<link rel="alternate" hreflang="ru" href="https://matteogilioli.github.io/porter-for-claude-desktop/ru/">
+<link rel="alternate" hreflang="x-default" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<meta name="theme-color" content="#1c1420">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Porter for Claude Desktop">
+<meta property="og:title" content="Porter for Claude Desktop：上限に達したらセッションを別のアカウントへ">
+<meta property="og:description" content="無料・オープンソースの Mac メニューバーアプリ。Claude のアカウントが使用上限に達したら、Porter が Claude Code のセッションを別のアカウントに移動します。">
+<meta property="og:url" content="https://matteogilioli.github.io/porter-for-claude-desktop/ja/">
+<meta property="og:image" content="https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="preload" href="../assets/fonts/gloock-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=8d1a0115">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Porter for Claude Desktop", "operatingSystem": "macOS 14 or later", "applicationCategory": "DeveloperApplication", "description": "無料・オープンソースの Mac メニューバーアプリ。Claude のアカウントが使用上限に達したら、Porter が Claude Code のセッションを別のアカウントに移動します。", "url": "https://matteogilioli.github.io/porter-for-claude-desktop/ja/", "downloadUrl": "https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg", "codeRepository": "https://github.com/matteogilioli/porter-for-claude-desktop", "license": "https://opensource.org/licenses/MIT", "inLanguage": "ja", "image": "https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Matteo Gilioli", "url": "https://github.com/matteogilioli"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="menubar">
+  <a class="brand" href="./">
+    <img src="../assets/icon.png" width="28" height="28" alt="">
+    <span>Porter</span>
+  </a>
+  <nav class="menubar-nav" aria-label="Porter">
+    <a href="#how">仕組み</a>
+    <a href="#profiles">プロファイル</a>
+    <a href="#usage">使用量</a>
+    <a href="#install">インストール</a>
+  </nav>
+  <div class="menubar-right">
+    <span class="status-item" aria-hidden="true"><svg viewBox="0 0 180 180" width="16" height="16"><g fill="currentColor" fill-rule="evenodd"><path d="M18 180V158q0-26 34-31l22-3 16 26 16-26 22 3q34 5 34 31v22z"/><circle cx="90" cy="86" r="27"/><g transform="rotate(-8 90 52)"><path d="M68 40q0-12 12-12h20q12 0 12 12l3 16H65z"/><rect x="58" y="58" width="64" height="11" rx="5.5"/></g></g></svg></span>
+    <time class="clock" aria-hidden="true"></time>
+    <details class="langs">
+      <summary aria-label="言語">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.75 10h14.5M10 2.75c2 2.1 2.9 4.5 2.9 7.25S12 15.15 10 17.25M10 2.75C8 4.85 7.1 7.25 7.1 10s.9 5.15 2.9 7.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>日本語</span>
+      </summary>
+      <ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li><li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../ja/" hreflang="ja" lang="ja" aria-current="page">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li></ul>
+    </details>
+    <a class="gh" href="https://github.com/matteogilioli/porter-for-claude-desktop" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="carry" id="carry" aria-labelledby="hero-title">
+  <div class="stage">
+    <h1 id="hero-title"><span>上限に達しても、</span> <span class="accent">会話はそのまま。</span></h1>
+    <div class="hero-copy">
+      <p class="lead">Porter は、使用上限に達したアカウントから余裕のあるアカウントへ Claude Code のセッションを移します。Claude が止まったところから、そのまま続けられます。</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Mac 版をダウンロード
+        </a>
+        <a class="button ghost" href="https://github.com/matteogilioli/porter-for-claude-desktop">GitHub でソースを見る</a>
+      </div>
+      <p class="meta">macOS 14 以降 · 無料・オープンソース · 10 言語に対応</p>
+    </div>
+
+    <div class="deck" aria-label="アカウントとセッションの例" role="img">
+      <svg class="path" aria-hidden="true"><path class="path-track"/><path class="path-ink"/></svg>
+
+      <article class="account account-a" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">仕事</p><span class="badge warn">上限で停止 1 件</span></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b></div>
+        </div>
+        <div class="slot slot-a"></div>
+        <footer><span class="count-a" data-before="未アーカイブ 3 件" data-after="未アーカイブ 3 件">未アーカイブ 3 件</span></footer>
+      </article>
+
+      <article class="account account-b" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">個人</p></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i class="b5" style="--v:12" data-tone="green"></i><b class="b5n">12%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b></div>
+        </div>
+        <div class="slot slot-b"></div>
+        <footer><span class="count-b" data-before="未アーカイブ 3 件" data-after="未アーカイブ 4 件">未アーカイブ 3 件</span></footer>
+      </article>
+
+      <article class="session" aria-hidden="true">
+        <img class="porter-ride" src="../assets/icon.png" width="34" height="34" alt="">
+        <div class="session-top">
+          <svg viewBox="0 0 16 16" width="14" height="14"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span class="session-project">api-server</span>
+        </div>
+        <p class="session-title">認証ミドルウェアをリファクタリング</p>
+        <p class="session-status">
+          <span class="status-error">上限に達しました · 20:59 にリセット</span>
+          <span class="status-ok">続きを再開できます</span>
+        </p>
+      </article>
+
+      <p class="demo-note">サンプルデータ</p>
+      <ol class="steps">
+        <li>上限に達すると、Claude はセッションを止めます。</li>
+        <li>Porter が余裕のあるアカウントへ移します。</li>
+        <li>同じ会話を、新しいアカウントで。</li>
+      </ol>
+    </div>
+    <span class="scroll-hint" aria-hidden="true">スクロール</span>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="how-copy">
+    <h2 id="how-title">会話は、もともとアカウントのものではありません。</h2>
+    <p>Claude Code はすべての会話を Mac 上の専用フォルダに保存し、どのアカウントからも共通で使います。アカウントに属しているのは、Claude Desktop の小さなセッション一覧だけです。Porter はその一覧の項目を移し、上限エラーを消して、セッションが使う git worktree も一緒に運びます。</p>
+  </div>
+  <figure class="ledger" aria-hidden="true">
+    <div class="ledger-lists">
+      <div class="ledger-list">
+        <p class="ledger-label">「仕事」のセッション一覧</p>
+        <code>claude-code-sessions/work/…/</code>
+        <ul>
+          <li><code>local_3c91.json</code></li>
+          <li class="moving"><code>local_7f2a.json</code></li>
+          <li><code>local_b04e.json</code></li>
+        </ul>
+      </div>
+      <div class="ledger-arrow"><svg viewBox="0 0 120 24" preserveAspectRatio="none"><path d="M2 12h112m0 0-8-7m8 7-8 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/></svg></div>
+      <div class="ledger-list">
+        <p class="ledger-label">「個人」のセッション一覧</p>
+        <code>claude-code-sessions/personal/…/</code>
+        <ul>
+          <li><code>local_91d0.json</code></li>
+          <li class="landing"><code>local_7f2a.json</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ledger-shelf">
+      <p class="ledger-label">すべてのアカウントで共有</p>
+      <code>~/.claude/projects/api-server/7f2a….jsonl</code>
+      <span>会話そのもの</span>
+    </div>
+    <figcaption>サンプルデータ</figcaption>
+  </figure>
+  <ul class="how-notes">
+    <li>Porter は変更のたびに事前にバックアップを作り、削除したものはゴミ箱に入れます。</li>
+    <li>起動中の Claude Desktop は一覧をメモリに保持しているため、Porter はいったん終了させ、完了後にもう一度開きます。</li>
+  </ul>
+</section>
+
+<section class="profiles" id="profiles" aria-labelledby="profiles-title">
+  <div class="profiles-copy">
+    <h2 id="profiles-title">複数の Claude Desktop を、同時に。</h2>
+    <p>Claude Desktop は通常、一度に 1 つのアカウントしか使えません。Porter を使うと、各プロファイルがサインイン、設定、セッションをそれぞれ持つ独立した Claude Desktop になり、ほかのアプリと同じく Dock に並び、⌘-Tab でも切り替えられます。1 つのアカウントが上限に達したら、次のウインドウで作業を続けましょう。</p>
+    <p class="aside">オプションで、ブラウザからの Claude のリンクを最後に使ったプロファイルで開けます。</p>
+  </div>
+  <div class="windows" aria-hidden="true">
+    <div class="win w1"><div class="win-bar"><i></i><i></i><i></i><span>仕事</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@work.example</p><div class="w-bar"><i style="--v:100" data-tone="red"></i><b>100%</b></div></aside><ul><li><span class="s-dot stop"></span><span class="s-title">認証ミドルウェアをリファクタリング</span><span class="pill stop">上限に到達</span></li><li><span class="s-dot ok"></span><span class="s-title">決済テストの不安定さを修正</span><span class="pill ok">準備完了</span></li></ul></div></div>
+    <div class="win w2"><div class="win-bar"><i></i><i></i><i></i><span>個人</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@home.example</p><div class="w-bar"><i style="--v:18" data-tone="green"></i><b>18%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">設定にダークモードを追加</span><span class="pill ok">準備完了</span></li><li><span class="s-dot ok"></span><span class="s-title">リリースノートを書く</span><span class="pill ok">準備完了</span></li></ul></div></div>
+    <div class="win w3"><div class="win-bar"><i></i><i></i><i></i><span>クライアント</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@client.example</p><div class="w-bar"><i style="--v:7" data-tone="green"></i><b>7%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">API を v2 へ移行</span><span class="pill ok">準備完了</span></li><li><span class="s-dot ok"></span><span class="s-title">決済テストの不安定さを修正</span><span class="pill ok">準備完了</span></li></ul></div></div>
+  </div>
+  <p class="example-note">サンプルデータ</p>
+</section>
+
+<section class="usage" id="usage" aria-labelledby="usage-title">
+  <div class="panel" aria-label="サンプルデータ" role="img">
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">仕事</p></header>
+      <p class="mail">you@work.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b><time>今日 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b><time>10月28日 7:00</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:22" data-tone="green"></i><b>22%</b><time>10月28日 7:00</time></div>
+      </div>
+      <footer><span class="badge warn">上限で停止 1 件</span><a class="panel-move">3 件を「個人」に移動 <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.5 8H13M8.8 3.8 13 8l-4.2 4.2"/></svg></a></footer>
+    </div>
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">個人</p></header>
+      <p class="mail">you@home.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i class="live" style="--v:12" data-tone="green"></i><b class="live-n">12%</b><time>今日 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b><time>明日 20:59</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:0" data-tone="green"></i><b>0%</b><time>明日 20:59</time></div>
+      </div>
+      <footer><span>未アーカイブ 3 件</span><a class="panel-link">セッション <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 3.5 4.5 4.5L6 12.5"/></svg></a></footer>
+    </div>
+    <p class="example">サンプルデータ</p>
+  </div>
+  <div class="usage-copy">
+    <h2 id="usage-title">すべてのアカウントをひと目で。</h2>
+    <p>メニューバーのポーターをクリックすると、各アカウントの 5 時間と 7 日間の使用量、上限で止まったセッションが表示され、ボタン 1 つで余裕のあるアカウントへ移動できます。</p>
+    <h3>必要なときは、リアルタイムの使用量も。</h3>
+    <p>「リアルタイムの使用量」をオンにすると、Porter は数分ごとに各プロファイルのセッションで claude.ai に問い合わせます。Claude の使用量画面と同じ方法です。各上限のリセット時刻や、Fable など特定のモデルだけに適用される上限も表示されます。</p>
+  </div>
+</section>
+
+<section class="window" aria-labelledby="window-title">
+  <div class="window-copy">
+    <h2 id="window-title">すべてのセッションを、1 つのウインドウで。</h2>
+    <ul><li>セッションをプロジェクトごとに表示し、検索やフィルタも使えます</li><li>別のアカウントへ移動やコピー、ドラッグでも移せます</li><li>アーカイブ、復元、削除。変更の前には毎回バックアップを作成します</li><li>プロジェクトフォルダを移動すると、それを使うセッションもすべて追従します</li></ul>
+  </div>
+  <figure class="window-figure">
+    <img class="window-shot" src="../assets/window.svg" width="1200" height="740" loading="lazy" alt="Porter のメインウインドウ：サイドバーにアカウント、プロジェクトごとにまとめたセッション、「アーカイブ」「削除」「移動先」を含むアクションバー">
+    <figcaption>サンプルデータ</figcaption>
+  </figure>
+</section>
+
+<section class="cli" aria-labelledby="cli-title">
+  <div class="cli-copy">
+    <h2 id="cli-title">コマンドラインからも。</h2>
+    <p>同じアプリで、スクリプトからセッションを移動できます。</p>
+  </div>
+  <pre class="terminal"><code><span class="line"><span class="prompt">$</span> <span class="nw">alias</span> <span class="arg-path">porter="/Applications/Porter for Claude Desktop.app/Contents/MacOS/Porter"</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--list</span> <span class="c"># アカウント、プロファイル、そのセッション一覧</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--dry-run</span> <span class="c"># 何も変更せず、実行結果だけを表示</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--restart</span> <span class="c"># 移動（Claude Desktop を終了して再度開く）</span></span></code></pre>
+</section>
+
+<section class="install" id="install" aria-labelledby="install-title">
+  <h2 id="install-title">1 分でインストール。</h2>
+  <ol class="install-steps">
+    <li>
+      <h3>ダウンロード</h3>
+      <p>Porter.dmg をダウンロードして開き、Porter をアプリケーションフォルダにドラッグします。</p>
+      <a class="button primary small" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">Porter.dmg</a>
+    </li>
+    <li>
+      <h3>初回だけ許可</h3>
+      <p>Porter は公証を受けていないため、初回の起動は macOS にブロックされます。システム設定 → プライバシーとセキュリティを開いて「このまま開く」をクリックするか、次のコマンドを実行してください：</p>
+      <div class="cmd"><code id="xattr">xattr -dr com.apple.quarantine "/Applications/Porter for Claude Desktop.app"</code><button type="button" class="copy" data-copy="xattr" data-done="コピーしました">コピー</button></div>
+    </li>
+    <li>
+      <h3>サインインして使い始める</h3>
+      <p>メニューバーのポーターをクリックし、アカウントごとにプロファイルを作ってサインインします。以降、Porter は自動でアップデートされます。</p>
+    </li>
+  </ol>
+  <aside class="honest" aria-labelledby="honest-title">
+    <h3 id="honest-title">ご注意</h3>
+    <ul>
+      <li>Porter は非公式のアプリで、Anthropic とは関係ありません。Claude Desktop 自身のファイルを扱いますが、これらは公開された仕様がなく、アップデートで変わる可能性があります。</li>
+      <li>扱うのは、Claude Desktop が Mac に保存しているもの、つまり Code タブのセッションです。チャットは Anthropic のサーバー上にあり、各アカウントに紐づいたままです。</li>
+      <li>ご自身のアカウントだけを使い、ご利用の Claude プランの規約に従ってください。</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+  <img src="../assets/icon.png" width="112" height="112" alt="">
+  <h2 id="close-title">会話を止めずに、その先へ。</h2>
+  <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">Mac 版をダウンロード</a>
+  <p class="meta">macOS 14 以降と Claude Desktop が必要です。</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Links">
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop">GitHub</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/releases">リリース</a>
+    <a href="https://github.com/sponsors/matteogilioli">スポンサー</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/blob/main/LICENSE">MIT ライセンス</a>
+  </nav>
+  <p>Claude は Anthropic の商標です。Porter は独立したプロジェクトです。</p>
+</footer>
+
+<script src="../assets/site.js?v=db3989b0" defer></script>
+</body>
+</html>

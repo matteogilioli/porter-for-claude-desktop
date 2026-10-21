@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porter for Claude Desktop：达到限额时转移会话</title>
+<meta name="description" content="免费开源的 Mac 菜单栏应用。Claude 账户达到使用限额时，Porter 会把你的 Claude Code 会话移到另一个账户。">
+<link rel="canonical" href="https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/">
+<link rel="alternate" hreflang="en" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<link rel="alternate" hreflang="it" href="https://matteogilioli.github.io/porter-for-claude-desktop/it/">
+<link rel="alternate" hreflang="es" href="https://matteogilioli.github.io/porter-for-claude-desktop/es/">
+<link rel="alternate" hreflang="fr" href="https://matteogilioli.github.io/porter-for-claude-desktop/fr/">
+<link rel="alternate" hreflang="de" href="https://matteogilioli.github.io/porter-for-claude-desktop/de/">
+<link rel="alternate" hreflang="pt-BR" href="https://matteogilioli.github.io/porter-for-claude-desktop/pt-br/">
+<link rel="alternate" hreflang="zh-Hans" href="https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/">
+<link rel="alternate" hreflang="ja" href="https://matteogilioli.github.io/porter-for-claude-desktop/ja/">
+<link rel="alternate" hreflang="ko" href="https://matteogilioli.github.io/porter-for-claude-desktop/ko/">
+<link rel="alternate" hreflang="ru" href="https://matteogilioli.github.io/porter-for-claude-desktop/ru/">
+<link rel="alternate" hreflang="x-default" href="https://matteogilioli.github.io/porter-for-claude-desktop/">
+<meta name="theme-color" content="#1c1420">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Porter for Claude Desktop">
+<meta property="og:title" content="Porter for Claude Desktop：达到限额时转移会话">
+<meta property="og:description" content="免费开源的 Mac 菜单栏应用。Claude 账户达到使用限额时，Porter 会把你的 Claude Code 会话移到另一个账户。">
+<meta property="og:url" content="https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/">
+<meta property="og:image" content="https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="preload" href="../assets/fonts/gloock-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=8d1a0115">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Porter for Claude Desktop", "operatingSystem": "macOS 14 or later", "applicationCategory": "DeveloperApplication", "description": "免费开源的 Mac 菜单栏应用。Claude 账户达到使用限额时，Porter 会把你的 Claude Code 会话移到另一个账户。", "url": "https://matteogilioli.github.io/porter-for-claude-desktop/zh-hans/", "downloadUrl": "https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg", "codeRepository": "https://github.com/matteogilioli/porter-for-claude-desktop", "license": "https://opensource.org/licenses/MIT", "inLanguage": "zh-Hans", "image": "https://matteogilioli.github.io/porter-for-claude-desktop/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Matteo Gilioli", "url": "https://github.com/matteogilioli"}}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="menubar">
+  <a class="brand" href="./">
+    <img src="../assets/icon.png" width="28" height="28" alt="">
+    <span>Porter</span>
+  </a>
+  <nav class="menubar-nav" aria-label="Porter">
+    <a href="#how">工作原理</a>
+    <a href="#profiles">配置文件</a>
+    <a href="#usage">用量</a>
+    <a href="#install">安装</a>
+  </nav>
+  <div class="menubar-right">
+    <span class="status-item" aria-hidden="true"><svg viewBox="0 0 180 180" width="16" height="16"><g fill="currentColor" fill-rule="evenodd"><path d="M18 180V158q0-26 34-31l22-3 16 26 16-26 22 3q34 5 34 31v22z"/><circle cx="90" cy="86" r="27"/><g transform="rotate(-8 90 52)"><path d="M68 40q0-12 12-12h20q12 0 12 12l3 16H65z"/><rect x="58" y="58" width="64" height="11" rx="5.5"/></g></g></svg></span>
+    <time class="clock" aria-hidden="true"></time>
+    <details class="langs">
+      <summary aria-label="语言">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.75 10h14.5M10 2.75c2 2.1 2.9 4.5 2.9 7.25S12 15.15 10 17.25M10 2.75C8 4.85 7.1 7.25 7.1 10s.9 5.15 2.9 7.25" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>简体中文</span>
+      </summary>
+      <ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português</a></li><li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="page">简体中文</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li></ul>
+    </details>
+    <a class="gh" href="https://github.com/matteogilioli/porter-for-claude-desktop" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="carry" id="carry" aria-labelledby="hero-title">
+  <div class="stage">
+    <h1 id="hero-title"><span>额度用完了，</span> <span class="accent">对话接着聊。</span></h1>
+    <div class="hero-copy">
+      <p class="lead">当一个账户达到使用限额时，Porter 会把你的 Claude Code 会话搬到还有余量的账户，让你从 Claude 停下的地方接着做。</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">
+          <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载 Mac 版
+        </a>
+        <a class="button ghost" href="https://github.com/matteogilioli/porter-for-claude-desktop">在 GitHub 上查看源代码</a>
+      </div>
+      <p class="meta">macOS 14 或更高版本 · 免费开源 · 支持 10 种语言</p>
+    </div>
+
+    <div class="deck" aria-label="示例账户和会话" role="img">
+      <svg class="path" aria-hidden="true"><path class="path-track"/><path class="path-ink"/></svg>
+
+      <article class="account account-a" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">工作</p><span class="badge warn">1 个因限额停止</span></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b></div>
+        </div>
+        <div class="slot slot-a"></div>
+        <footer><span class="count-a" data-before="3 个未归档" data-after="3 个未归档">3 个未归档</span></footer>
+      </article>
+
+      <article class="account account-b" aria-hidden="true">
+        <header><span class="dot"></span><p class="name">个人</p></header>
+        <div class="bars">
+          <div class="bar"><span>5h</span><i class="b5" style="--v:12" data-tone="green"></i><b class="b5n">12%</b></div>
+          <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b></div>
+        </div>
+        <div class="slot slot-b"></div>
+        <footer><span class="count-b" data-before="3 个未归档" data-after="4 个未归档">3 个未归档</span></footer>
+      </article>
+
+      <article class="session" aria-hidden="true">
+        <img class="porter-ride" src="../assets/icon.png" width="34" height="34" alt="">
+        <div class="session-top">
+          <svg viewBox="0 0 16 16" width="14" height="14"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span class="session-project">api-server</span>
+        </div>
+        <p class="session-title">重构认证中间件</p>
+        <p class="session-status">
+          <span class="status-error">你已达到使用限额 · 20:59 重置</span>
+          <span class="status-ok">可以继续</span>
+        </p>
+      </article>
+
+      <p class="demo-note">示例数据</p>
+      <ol class="steps">
+        <li>达到限额时，Claude 会停止会话。</li>
+        <li>Porter 把它搬到还有余量的账户。</li>
+        <li>同一段对话，换个账户继续。</li>
+      </ol>
+    </div>
+    <span class="scroll-hint" aria-hidden="true">向下滚动</span>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="how-copy">
+    <h2 id="how-title">对话从来不属于某个账户。</h2>
+    <p>Claude Code 把每段对话都保存在你 Mac 上的专属文件夹中，由所有账户共享。真正属于账户的，只有 Claude Desktop 里一份简短的会话列表。Porter 会移动列表中的条目，清除限额错误，并把会话用到的 git worktree 一并带过去。</p>
+  </div>
+  <figure class="ledger" aria-hidden="true">
+    <div class="ledger-lists">
+      <div class="ledger-list">
+        <p class="ledger-label">“工作”的会话列表</p>
+        <code>claude-code-sessions/work/…/</code>
+        <ul>
+          <li><code>local_3c91.json</code></li>
+          <li class="moving"><code>local_7f2a.json</code></li>
+          <li><code>local_b04e.json</code></li>
+        </ul>
+      </div>
+      <div class="ledger-arrow"><svg viewBox="0 0 120 24" preserveAspectRatio="none"><path d="M2 12h112m0 0-8-7m8 7-8 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/></svg></div>
+      <div class="ledger-list">
+        <p class="ledger-label">“个人”的会话列表</p>
+        <code>claude-code-sessions/personal/…/</code>
+        <ul>
+          <li><code>local_91d0.json</code></li>
+          <li class="landing"><code>local_7f2a.json</code></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ledger-shelf">
+      <p class="ledger-label">所有账户共享</p>
+      <code>~/.claude/projects/api-server/7f2a….jsonl</code>
+      <span>对话本身</span>
+    </div>
+    <figcaption>示例数据</figcaption>
+  </figure>
+  <ul class="how-notes">
+    <li>每次更改之前，Porter 都会先做备份；删除的内容会移到废纸篓。</li>
+    <li>运行中的 Claude Desktop 把会话列表保存在内存中，所以 Porter 会先退出它，完成后再重新打开。</li>
+  </ul>
+</section>
+
+<section class="profiles" id="profiles" aria-labelledby="profiles-title">
+  <div class="profiles-copy">
+    <h2 id="profiles-title">多个 Claude Desktop，同时运行。</h2>
+    <p>Claude Desktop 通常一次只能登录一个账户。有了 Porter，每个配置文件都是一个独立的 Claude Desktop，有自己的登录状态、设置和会话，像普通应用一样出现在程序坞和 ⌘-Tab 中。一个账户用完了，就到下一个窗口接着干。</p>
+    <p class="aside">还可以让从浏览器打开的 Claude 链接进入你最近使用的配置文件。</p>
+  </div>
+  <div class="windows" aria-hidden="true">
+    <div class="win w1"><div class="win-bar"><i></i><i></i><i></i><span>工作</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@work.example</p><div class="w-bar"><i style="--v:100" data-tone="red"></i><b>100%</b></div></aside><ul><li><span class="s-dot stop"></span><span class="s-title">重构认证中间件</span><span class="pill stop">已达上限</span></li><li><span class="s-dot ok"></span><span class="s-title">修复不稳定的支付测试</span><span class="pill ok">就绪</span></li></ul></div></div>
+    <div class="win w2"><div class="win-bar"><i></i><i></i><i></i><span>个人</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@home.example</p><div class="w-bar"><i style="--v:18" data-tone="green"></i><b>18%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">为设置添加深色模式</span><span class="pill ok">就绪</span></li><li><span class="s-dot ok"></span><span class="s-title">撰写发布说明</span><span class="pill ok">就绪</span></li></ul></div></div>
+    <div class="win w3"><div class="win-bar"><i></i><i></i><i></i><span>客户</span></div>
+      <div class="win-body"><aside><p class="w-acc">you@client.example</p><div class="w-bar"><i style="--v:7" data-tone="green"></i><b>7%</b></div></aside><ul><li><span class="s-dot ok"></span><span class="s-title">将 API 迁移到 v2</span><span class="pill ok">就绪</span></li><li><span class="s-dot ok"></span><span class="s-title">修复不稳定的支付测试</span><span class="pill ok">就绪</span></li></ul></div></div>
+  </div>
+  <p class="example-note">示例数据</p>
+</section>
+
+<section class="usage" id="usage" aria-labelledby="usage-title">
+  <div class="panel" aria-label="示例数据" role="img">
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">工作</p></header>
+      <p class="mail">you@work.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b><time>今天 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b><time>10月28日 07:00</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:22" data-tone="green"></i><b>22%</b><time>10月28日 07:00</time></div>
+      </div>
+      <footer><span class="badge warn">1 个因限额停止</span><a class="panel-move">将 3 个移动到“个人” <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.5 8H13M8.8 3.8 13 8l-4.2 4.2"/></svg></a></footer>
+    </div>
+    <div class="panel-card">
+      <header><span class="dot on"></span><p class="name">个人</p></header>
+      <p class="mail">you@home.example</p>
+      <div class="bars wide">
+        <div class="bar"><span>5h</span><i class="live" style="--v:12" data-tone="green"></i><b class="live-n">12%</b><time>今天 14:50</time></div>
+        <div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b><time>明天 20:59</time></div>
+        <div class="bar"><span>Fable</span><i style="--v:0" data-tone="green"></i><b>0%</b><time>明天 20:59</time></div>
+      </div>
+      <footer><span>3 个未归档</span><a class="panel-link">会话 <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 3.5 4.5 4.5L6 12.5"/></svg></a></footer>
+    </div>
+    <p class="example">示例数据</p>
+  </div>
+  <div class="usage-copy">
+    <h2 id="usage-title">所有账户，一目了然。</h2>
+    <p>点按菜单栏中的搬运工图标：每个账户都会显示 5 小时和 7 天用量、因限额停止的会话，还有一个按钮，可将它们移到有余量的账户。</p>
+    <h3>需要时，查看实时用量。</h3>
+    <p>开启“实时用量”后，Porter 每隔几分钟就用每个配置文件自己的会话向 claude.ai 获取用量，与 Claude 的用量页面一样。你还能看到每项限额的重置时间，以及只针对某个模型（例如 Fable）的限额。</p>
+  </div>
+</section>
+
+<section class="window" aria-labelledby="window-title">
+  <div class="window-copy">
+    <h2 id="window-title">所有会话，尽在一个窗口。</h2>
+    <ul><li>会话按项目分组，支持搜索和筛选</li><li>移动或拷贝到另一个账户，也可以直接拖过去</li><li>归档、恢复和删除，每次更改前都会先备份</li><li>移动项目文件夹，使用它的每个会话都会随之更新</li></ul>
+  </div>
+  <figure class="window-figure">
+    <img class="window-shot" src="../assets/window.svg" width="1200" height="740" loading="lazy" alt="Porter 的主窗口：侧边栏中是各个账户，会话按项目分组，操作栏中有归档、删除和移动到">
+    <figcaption>示例数据</figcaption>
+  </figure>
+</section>
+
+<section class="cli" aria-labelledby="cli-title">
+  <div class="cli-copy">
+    <h2 id="cli-title">命令行也能用。</h2>
+    <p>同一个应用，也能在脚本中移动会话。</p>
+  </div>
+  <pre class="terminal"><code><span class="line"><span class="prompt">$</span> <span class="nw">alias</span> <span class="arg-path">porter="/Applications/Porter for Claude Desktop.app/Contents/MacOS/Porter"</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--list</span> <span class="c"># 账户、配置文件及其会话列表</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--dry-run</span> <span class="c"># 预览将会发生什么，不做任何更改</span></span><span class="line"><span class="prompt">$</span> <span class="nw">porter</span> <span class="nw">--move</span> <span class="nw">--from WORK</span> <span class="nw">--to PERSONAL</span> <span class="nw">--restart</span> <span class="c"># 移动会话，并关闭和重新打开 Claude Desktop</span></span></code></pre>
+</section>
+
+<section class="install" id="install" aria-labelledby="install-title">
+  <h2 id="install-title">一分钟完成安装。</h2>
+  <ol class="install-steps">
+    <li>
+      <h3>下载</h3>
+      <p>下载 Porter.dmg，打开后将 Porter 拖到“应用程序”文件夹。</p>
+      <a class="button primary small" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">Porter.dmg</a>
+    </li>
+    <li>
+      <h3>允许一次</h3>
+      <p>Porter 未经过公证，所以 macOS 会阻止首次打开。前往“系统设置”→“隐私与安全性”，点按“仍要打开”，或者运行：</p>
+      <div class="cmd"><code id="xattr">xattr -dr com.apple.quarantine "/Applications/Porter for Claude Desktop.app"</code><button type="button" class="copy" data-copy="xattr" data-done="已拷贝">拷贝</button></div>
+    </li>
+    <li>
+      <h3>登录即可使用</h3>
+      <p>点按菜单栏中的搬运工图标，为每个账户新建一个配置文件并登录。之后 Porter 会自动更新。</p>
+    </li>
+  </ol>
+  <aside class="honest" aria-labelledby="honest-title">
+    <h3 id="honest-title">须知</h3>
+    <ul>
+      <li>Porter 是非官方项目，与 Anthropic 无关联。它读写 Claude Desktop 自己的文件，这些文件没有公开文档，可能随任何更新而改变。</li>
+      <li>它处理的是 Claude Desktop 保存在你 Mac 上的内容，即 Code 标签页中的会话。聊天保存在 Anthropic 的服务器上，归属于各自的账户。</li>
+      <li>请只使用你自己的账户，并遵守你的 Claude 套餐条款。</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+  <img src="../assets/icon.png" width="112" height="112" alt="">
+  <h2 id="close-title">让对话继续下去。</h2>
+  <a class="button primary" href="https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/Porter.dmg">下载 Mac 版</a>
+  <p class="meta">需要 macOS 14 或更高版本，以及 Claude Desktop。</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <nav aria-label="Links">
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop">GitHub</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/releases">版本发布</a>
+    <a href="https://github.com/sponsors/matteogilioli">赞助</a>
+    <a href="https://github.com/matteogilioli/porter-for-claude-desktop/blob/main/LICENSE">MIT 许可证</a>
+  </nav>
+  <p>Claude 是 Anthropic 的商标。Porter 是一个独立项目。</p>
+</footer>
+
+<script src="../assets/site.js?v=db3989b0" defer></script>
+</body>
+</html>

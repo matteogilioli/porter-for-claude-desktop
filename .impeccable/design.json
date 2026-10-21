@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T12:00:04+00:00",
+  "title": "Design System: Porter for Claude Desktop",
+  "extensions": {
+    "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Lobby Night",
+        "canonical": "#1c1420",
+        "tonalRamp": [
+          "#060406",
+          "#0b080d",
+          "#110c13",
+          "#16101a",
+          "#49434d",
+          "#827e84",
+          "#bbb8bc",
+          "#e8e8e9"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Night 2",
+        "canonical": "#2a1f2e",
+        "tonalRamp": [
+          "#080609",
+          "#110c12",
+          "#19131c",
+          "#221925",
+          "#554c58",
+          "#8a848c",
+          "#bfbcc0",
+          "#eae9ea"
+        ]
+      },
+      "plum": {
+        "role": "neutral",
+        "displayName": "Plum",
+        "canonical": "#34263a",
+        "tonalRamp": [
+          "#0a080c",
+          "#150f17",
+          "#1f1723",
+          "#2a1e2e",
+          "#5d5161",
+          "#8f8893",
+          "#c2bec4",
+          "#ebe9eb"
+        ]
+      },
+      "plum-line": {
+        "role": "neutral",
+        "displayName": "Plum Line",
+        "canonical": "#45334b",
+        "tonalRamp": [
+          "#0e0a0f",
+          "#1c141e",
+          "#291f2d",
+          "#37293c",
+          "#6a5c6f",
+          "#998f9c",
+          "#c7c2c9",
+          "#ecebed"
+        ]
+      },
+      "uniform": {
+        "role": "neutral",
+        "displayName": "Porter's Uniform",
+        "canonical": "#57406b",
+        "tonalRamp": [
+          "#110d15",
+          "#231a2b",
+          "#342640",
+          "#463356",
+          "#796689",
+          "#a396ae",
+          "#cdc6d3",
+          "#eeecf0"
+        ]
+      },
+      "well": {
+        "role": "neutral",
+        "displayName": "Terminal Well",
+        "canonical": "#120c11",
+        "tonalRamp": [
+          "#040203",
+          "#070507",
+          "#0b070a",
+          "#0e0a0e",
+          "#413d41",
+          "#7d797c",
+          "#b8b6b8",
+          "#e7e7e7"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "App Paper",
+        "canonical": "#fffdf9",
+        "tonalRamp": [
+          "#333332",
+          "#666564",
+          "#999895",
+          "#cccac7",
+          "#fffdfa",
+          "#fffefc",
+          "#fffefd",
+          "#fffffe"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Paper 2",
+        "canonical": "#f5f0e8",
+        "tonalRamp": [
+          "#31302e",
+          "#62605d",
+          "#93908b",
+          "#c4c0ba",
+          "#f7f3ed",
+          "#faf7f2",
+          "#fcfaf8",
+          "#fefefd"
+        ]
+      },
+      "paper-line": {
+        "role": "neutral",
+        "displayName": "Paper Line",
+        "canonical": "#e7ddd1",
+        "tonalRamp": [
+          "#2e2c2a",
+          "#5c5854",
+          "#8b857d",
+          "#b9b1a7",
+          "#ece4da",
+          "#f2ece6",
+          "#f8f5f1",
+          "#fdfcfa"
+        ]
+      },
+      "track": {
+        "role": "neutral",
+        "displayName": "Bar Track",
+        "canonical": "#ede4d8",
+        "tonalRamp": [
+          "#2f2e2b",
+          "#5f5b56",
+          "#8e8982",
+          "#beb6ad",
+          "#f1e9e0",
+          "#f5f0ea",
+          "#faf7f3",
+          "#fdfcfb"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#2b2522",
+        "tonalRamp": [
+          "#090707",
+          "#110f0e",
+          "#1a1614",
+          "#221e1b",
+          "#55514e",
+          "#8a8785",
+          "#bfbebd",
+          "#eae9e9"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#6f645b",
+        "tonalRamp": [
+          "#161412",
+          "#2c2824",
+          "#433c37",
+          "#595049",
+          "#8c837c",
+          "#b0aaa5",
+          "#d4d0ce",
+          "#f1f0ef"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#776c63",
+        "tonalRamp": [
+          "#181614",
+          "#302b28",
+          "#47413b",
+          "#5f564f",
+          "#928982",
+          "#b4aea9",
+          "#d6d3d0",
+          "#f1f0ef"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Night Text",
+        "canonical": "#f2ebe3",
+        "tonalRamp": [
+          "#302f2d",
+          "#615e5b",
+          "#918d88",
+          "#c2bcb6",
+          "#f5efe9",
+          "#f8f4f0",
+          "#fbf9f7",
+          "#fefdfc"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Night Text 2",
+        "canonical": "#c4b4be",
+        "tonalRamp": [
+          "#272426",
+          "#4e484c",
+          "#766c72",
+          "#9d9098",
+          "#d0c3cb",
+          "#dfd6db",
+          "#ede8ec",
+          "#f9f8f8"
+        ]
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Night Text 3",
+        "canonical": "#8f7d8b",
+        "tonalRamp": [
+          "#1d191c",
+          "#393238",
+          "#564b53",
+          "#72646f",
+          "#a597a2",
+          "#c1b8bf",
+          "#ddd8dc",
+          "#f4f2f3"
+        ]
+      },
+      "terra": {
+        "role": "primary",
+        "displayName": "Porter Terracotta",
+        "canonical": "#d97757",
+        "tonalRamp": [
+          "#2b1811",
+          "#573023",
+          "#824734",
+          "#ae5f46",
+          "#e19279",
+          "#eab4a3",
+          "#f4d6cd",
+          "#fbf1ee"
+        ]
+      },
+      "terra-deep": {
+        "role": "primary",
+        "displayName": "Deep Terracotta",
+        "canonical": "#c96442",
+        "tonalRamp": [
+          "#28140d",
+          "#50281a",
+          "#793c28",
+          "#a15035",
+          "#d48368",
+          "#e1aa97",
+          "#efd0c6",
+          "#faf0ec"
+        ]
+      },
+      "terra-ink": {
+        "role": "primary",
+        "displayName": "Terracotta Ink",
+        "canonical": "#a9502f",
+        "tonalRamp": [
+          "#221009",
+          "#442013",
+          "#65301c",
+          "#874026",
+          "#ba7359",
+          "#d09f8d",
+          "#e5cac1",
+          "#f6eeea"
+        ]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Lobby Brass",
+        "canonical": "#e8b866",
+        "tonalRamp": [
+          "#2e2514",
+          "#5d4a29",
+          "#8b6e3d",
+          "#ba9352",
+          "#edc685",
+          "#f2d8ab",
+          "#f8ead1",
+          "#fdf8f0"
+        ]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Room Green",
+        "canonical": "#4f8a5b",
+        "tonalRamp": [
+          "#101c12",
+          "#203724",
+          "#2f5337",
+          "#3f6e49",
+          "#72a17c",
+          "#9ebfa5",
+          "#cadcce",
+          "#edf3ef"
+        ]
+      },
+      "green-ink": {
+        "role": "tertiary",
+        "displayName": "Green Ink",
+        "canonical": "#3b7347",
+        "tonalRamp": [
+          "#0c170e",
+          "#182e1c",
+          "#23452b",
+          "#2f5c39",
+          "#628f6c",
+          "#93b29a",
+          "#c4d5c8",
+          "#ebf1ed"
+        ]
+      },
+      "orange": {
+        "role": "tertiary",
+        "displayName": "Near-limit Orange",
+        "canonical": "#c2711f",
+        "tonalRamp": [
+          "#271706",
+          "#4e2d0c",
+          "#744413",
+          "#9b5a19",
+          "#ce8d4c",
+          "#ddb184",
+          "#edd4bc",
+          "#f9f1e9"
+        ]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Limit Red",
+        "canonical": "#c2452d",
+        "tonalRamp": [
+          "#270e09",
+          "#4e1c12",
+          "#74291b",
+          "#9b3724",
+          "#ce6a57",
+          "#dd998c",
+          "#edc7c0",
+          "#f9ecea"
+        ]
+      },
+      "warn-tint": {
+        "role": "tertiary",
+        "displayName": "Warn Tint",
+        "canonical": "#f8e3d5",
+        "tonalRamp": [
+          "#322d2b",
+          "#635b55",
+          "#958880",
+          "#c6b6aa",
+          "#f9e9dd",
+          "#fbf0e8",
+          "#fdf7f2",
+          "#fefcfb"
+        ]
+      },
+      "warn-ink": {
+        "role": "tertiary",
+        "displayName": "Warn Ink",
+        "canonical": "#9a4f17",
+        "tonalRamp": [
+          "#1f1005",
+          "#3e2009",
+          "#5c2f0e",
+          "#7b3f12",
+          "#ae7245",
+          "#c79e7f",
+          "#e1cab9",
+          "#f5ede8"
+        ]
+      },
+      "ok-tint": {
+        "role": "tertiary",
+        "displayName": "OK Tint",
+        "canonical": "#e6f1e7",
+        "tonalRamp": [
+          "#2e302e",
+          "#5c605c",
+          "#8a918b",
+          "#b8c1b9",
+          "#ebf4ec",
+          "#f1f7f2",
+          "#f8fbf8",
+          "#fcfefd"
+        ]
+      },
+      "ok-ink": {
+        "role": "tertiary",
+        "displayName": "OK Ink",
+        "canonical": "#2f6339",
+        "tonalRamp": [
+          "#09140b",
+          "#132817",
+          "#1c3b22",
+          "#264f2e",
+          "#598261",
+          "#8da992",
+          "#c1d0c4",
+          "#eaefeb"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; CJK pages swap the display stack and drop to clamp(2.3rem, 4.4vw, 4.4rem) at 1.12."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title-serif": {
+        "displayName": "Title Serif",
+        "purpose": "Sub-headings, brass on night."
+      },
+      "card-name": {
+        "displayName": "Card Name",
+        "purpose": "Account names on paper cards."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Install step titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy in text-2, max 34rem."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero lead, max 30rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Bar labels, percentages, badges, ledger labels."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Example data notes and figure captions."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Real paths, files and commands only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-float",
+        "value": "0 30px 60px -28px rgb(0 0 0 / .8), 0 2px 0 rgb(255 255 255 / .6) inset",
+        "purpose": "Account cards; windows and close icon use the same family."
+      },
+      {
+        "name": "sheet-float",
+        "value": "0 40px 80px -40px rgb(0 0 0 / .9)",
+        "purpose": "The ledger."
+      },
+      {
+        "name": "panel-float",
+        "value": "0 50px 90px -40px rgb(0 0 0 / .95)",
+        "purpose": "Menu-bar panel and main window illustration."
+      },
+      {
+        "name": "session-lift",
+        "value": "0 1px 0 var(--paper-line), 0 calc(var(--lift) * 26px) calc(10px + var(--lift) * 40px) calc(var(--lift) * -14px) rgb(0 0 0 / .65)",
+        "purpose": "Session card while carried."
+      },
+      {
+        "name": "button",
+        "value": "0 10px 24px -12px rgb(0 0 0 / .8)",
+        "purpose": "Primary button; hover 0 16px 30px -12px rgb(0 0 0 / .85)."
+      },
+      {
+        "name": "menu",
+        "value": "0 18px 40px -12px rgb(0 0 0 / .55), 0 2px 6px rgb(0 0 0 / .2)",
+        "purpose": "Language dropdown."
+      },
+      {
+        "name": "hairline",
+        "value": "inset 0 0 0 1px var(--plum-line)",
+        "purpose": "Outlines night surfaces instead of lifting them; paper-line on paper."
+      },
+      {
+        "name": "brass-glow",
+        "value": "drop-shadow(0 0 6px rgb(232 184 102 / .5))",
+        "purpose": "The drawn porter path only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Every transition."
+      },
+      {
+        "name": "color",
+        "value": ".2s",
+        "purpose": "Link, ghost and button color changes."
+      },
+      {
+        "name": "press",
+        "value": ".25s var(--ease)",
+        "purpose": "Button lift and shadow."
+      },
+      {
+        "name": "state-crossfade",
+        "value": ".4s to .5s var(--ease), opacity + blur(4-6px) + 4px/0.6rem translate",
+        "purpose": "Badge clear, error to ready, step captions."
+      },
+      {
+        "name": "bar-fill",
+        "value": "transform .6s var(--ease)",
+        "purpose": "Usage bar fills scale from the left."
+      },
+      {
+        "name": "carry",
+        "value": "scroll progress p over 290vh (240vh narrow): lift 0.06-0.2, travel 0.18-0.78 cubic ease-out, set down 0.74-0.86, landed at 0.8, ink fade 0.86-0.98",
+        "purpose": "The one authored motion; drives data-lifted, data-landed, data-step, data-scrolled."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Carry collapses to its height, static stage at the landed end state, live ticker and scroll cue off, smooth scroll off."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "860px"
+      },
+      {
+        "name": "narrow-short",
+        "value": "860px wide and 700px tall"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The download action: the only terracotta fill on the night ground.",
+      "html": "<div class=\"ds-night\"><a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" aria-hidden=\"true\"><path d=\"M10 3v10m0 0-4-4m4 4 4-4M4 16h12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>Download for Mac</a></div>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-night{background:var(--night);padding:2rem}.ds-btn{display:inline-flex;align-items:center;gap:.55rem;min-height:3rem;padding:0 1.35rem;border-radius:999px;font:600 1rem/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,box-shadow .25s var(--ease),color .2s}.ds-btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}.ds-btn-primary{background:var(--terra);color:#1e1210;box-shadow:0 10px 24px -12px rgb(0 0 0/.8)}.ds-btn-primary:hover{background:#e3876a;transform:translateY(-1px);box-shadow:0 16px 30px -12px rgb(0 0 0/.85)}.ds-btn-primary:active{transform:translateY(0)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary link to the source, outlined with a plum hairline.",
+      "html": "<div class=\"ds-night\"><a class=\"ds-btn ds-btn-ghost\" href=\"#\">Source on GitHub</a></div>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-night{background:var(--night);padding:2rem}.ds-btn{display:inline-flex;align-items:center;gap:.55rem;min-height:3rem;padding:0 1.35rem;border-radius:999px;font:600 1rem/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),background-color .2s,box-shadow .25s var(--ease),color .2s}.ds-btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px}.ds-btn-ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--plum-line)}.ds-btn-ghost:hover{background:rgb(255 255 255/.05)}"
+    },
+    {
+      "name": "Menu Bar",
+      "kind": "nav",
+      "refersTo": "menubar",
+      "description": "The site header rendered as the macOS menu bar, with Porter's status item highlighted.",
+      "html": "<header class=\"ds-menubar\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-icon\"></span>Porter</a><nav class=\"ds-nav\"><a href=\"#\">How it works</a><a href=\"#\">Profiles</a><a href=\"#\">Usage</a></nav><span class=\"ds-status\"><svg viewBox=\"0 0 16 16\" width=\"14\" height=\"14\"><circle cx=\"8\" cy=\"6\" r=\"3\" fill=\"currentColor\"/><path d=\"M2 15v-1.5Q2 11 5 10.6l3 2.4 3-2.4q3 .4 3 2.9V15z\" fill=\"currentColor\"/></svg></span><time class=\"ds-clock\">20:41</time></header>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-menubar{display:flex;align-items:center;gap:1.5rem;height:3rem;padding:0 1.5rem;background:rgb(28 20 32/.78);backdrop-filter:saturate(1.4) blur(18px);border-bottom:1px solid rgb(255 255 255/.06);font:400 .875rem var(--sans);color:var(--text)}.ds-brand{display:flex;align-items:center;gap:.55rem;color:var(--text);text-decoration:none;font:400 1.25rem/1 var(--display)}.ds-icon{width:28px;height:28px;border-radius:7px;background:#57406b}.ds-nav{display:flex;gap:1.4rem}.ds-nav a{color:var(--text-2);text-decoration:none;transition:color .2s}.ds-nav a:hover{color:var(--text)}.ds-nav a:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:6px}.ds-status{margin-left:auto;display:grid;place-items:center;width:1.9rem;height:1.45rem;border-radius:5px;background:rgb(255 255 255/.14)}.ds-clock{color:var(--text-2);font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Account Card",
+      "kind": "card",
+      "refersTo": "account-card",
+      "description": "A lit paper account card at the app's scale, with usage bars and a limit badge.",
+      "html": "<div class=\"ds-night\"><article class=\"ds-account\"><header><span class=\"ds-dot\"></span><p class=\"ds-name\">Work</p><span class=\"ds-badge\">1 stopped by limit</span></header><div class=\"ds-bars\"><div class=\"ds-bar\"><span>5h</span><i class=\"r\" style=\"--v:100\"></i><b>100%</b></div><div class=\"ds-bar\"><span>7d</span><i class=\"g\" style=\"--v:64\"></i><b>64%</b></div></div><footer>3 open</footer></article></div>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-night{background:var(--night);padding:2rem}.ds-account{width:20rem;background:var(--paper);color:var(--ink);border-radius:18px;padding:1.1rem 1.15rem 1rem;box-shadow:0 30px 60px -28px rgb(0 0 0/.8),0 2px 0 rgb(255 255 255/.6) inset;font-family:var(--sans)}.ds-account header{display:flex;align-items:center;gap:.5rem}.ds-name{margin:0;font:400 1.35rem/1.1 var(--display);letter-spacing:-.01em}.ds-dot{width:.45rem;height:.45rem;border-radius:50%;background:var(--green)}.ds-badge{margin-left:auto;padding:.2rem .55rem;border-radius:999px;font-size:.72rem;font-weight:600;background:#f8e3d5;color:#9a4f17;white-space:nowrap}.ds-account footer{margin-top:.75rem;font-size:.75rem;color:var(--ink-2)}.ds-bars{display:grid;gap:.5rem;margin-top:.9rem}.ds-bar{display:grid;grid-template-columns:2rem 1fr 2.6rem;align-items:center;gap:.55rem;font:500 .75rem var(--sans)}.ds-bar span{color:var(--ink-2)}.ds-bar b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}.ds-bar i{position:relative;height:.3rem;border-radius:999px;background:#ede4d8;overflow:hidden}.ds-bar i::after{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--tone);transform-origin:left;transform:scaleX(max(.02,calc(var(--v)/100)));transition:transform .6s var(--ease)}.ds-bar i.g{--tone:var(--green)}.ds-bar i.r{--tone:var(--red)}.ds-bar i.g+b{color:var(--green-ink)}.ds-bar i.r+b{color:var(--red)}"
+    },
+    {
+      "name": "Session Card",
+      "kind": "custom",
+      "refersTo": "session-card",
+      "description": "The carried Claude Code session; its limit error dissolves into Ready to continue on hover here (on landing in the page).",
+      "html": "<div class=\"ds-night\"><article class=\"ds-session\" tabindex=\"0\"><div class=\"ds-top\">api-server</div><p class=\"ds-title\">Refactor the auth middleware</p><p class=\"ds-status-line\"><span class=\"ds-err\">You've hit your limit · resets 20:59</span><span class=\"ds-ok\">Ready to continue</span></p></article></div>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-night{background:var(--night);padding:2rem}.ds-session{width:17rem;background:var(--paper-2);color:var(--ink);border-radius:12px;padding:.7rem .8rem .75rem;box-shadow:0 1px 0 var(--paper-line),0 10px 20px -10px rgb(0 0 0/.65);font-family:var(--sans);transition:transform .45s var(--ease)}.ds-session:hover,.ds-session:focus-visible{transform:scale(1.06) rotate(-2deg);outline:none}.ds-top{color:var(--ink-3);font-size:.72rem}.ds-title{margin:.25rem 0 0;font-weight:600;font-size:.9rem;line-height:1.3}.ds-status-line{position:relative;margin:.35rem 0 0;font-size:.75rem;min-height:1.2em}.ds-err,.ds-ok{display:block;transition:opacity .45s var(--ease),filter .45s var(--ease),transform .45s var(--ease)}.ds-err{color:var(--red)}.ds-ok{position:absolute;inset:0;color:var(--green-ink);opacity:0;filter:blur(4px);transform:translateY(4px)}.ds-session:hover .ds-err,.ds-session:focus-visible .ds-err{opacity:0;filter:blur(4px);transform:translateY(-4px)}.ds-session:hover .ds-ok,.ds-session:focus-visible .ds-ok{opacity:1;filter:none;transform:none}"
+    },
+    {
+      "name": "Usage Bar",
+      "kind": "custom",
+      "refersTo": "panel-card",
+      "description": "The app's usage row: label, pill track filled by tone, tabular percentage, reset time.",
+      "html": "<div class=\"ds-paper\"><div class=\"ds-bars\"><div class=\"ds-bar\"><span>5h</span><i class=\"r\" style=\"--v:100\"></i><b>100%</b></div><div class=\"ds-bar\"><span>7d</span><i class=\"g\" style=\"--v:31\"></i><b>31%</b></div></div></div>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-paper{width:20rem;background:var(--paper);border-radius:14px;padding:1rem;box-shadow:inset 0 0 0 1px var(--paper-line)}.ds-bars{display:grid;gap:.5rem;margin-top:.9rem}.ds-bar{display:grid;grid-template-columns:2rem 1fr 2.6rem;align-items:center;gap:.55rem;font:500 .75rem var(--sans)}.ds-bar span{color:var(--ink-2)}.ds-bar b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}.ds-bar i{position:relative;height:.3rem;border-radius:999px;background:#ede4d8;overflow:hidden}.ds-bar i::after{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--tone);transform-origin:left;transform:scaleX(max(.02,calc(var(--v)/100)));transition:transform .6s var(--ease)}.ds-bar i.g{--tone:var(--green)}.ds-bar i.r{--tone:var(--red)}.ds-bar i.g+b{color:var(--green-ink)}.ds-bar i.r+b{color:var(--red)}"
+    },
+    {
+      "name": "Terminal",
+      "kind": "custom",
+      "refersTo": "terminal",
+      "description": "Real commands only, in the well below the night ground.",
+      "html": "<pre class=\"ds-term\"><code><span class=\"ds-p\">$</span> porter --list\n<span class=\"ds-p\">$</span> porter --move work personal <span class=\"ds-c\"># carry stopped sessions</span></code></pre>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-term{margin:0;padding:1.3rem 1.4rem;border-radius:16px;background:#120c11;color:var(--text);font:400 .85rem/1.9 var(--mono);box-shadow:inset 0 0 0 1px var(--plum-line)}.ds-p{color:var(--brass)}.ds-c{color:#8f7d8b}"
+    },
+    {
+      "name": "Install Step",
+      "kind": "card",
+      "refersTo": "install-step",
+      "description": "Numbered night card with a brass serif numeral.",
+      "html": "<ol class=\"ds-steps\"><li><h3>Download</h3><p>Get Porter.dmg, open it and drag Porter to Applications.</p></li></ol>",
+      "css": ":root{--night:#1c1420;--night-2:#2a1f2e;--plum-line:#45334b;--paper:#fffdf9;--paper-2:#f5f0e8;--paper-line:#e7ddd1;--ink:#2b2522;--ink-2:#6f645b;--ink-3:#776c63;--text:#f2ebe3;--text-2:#c4b4be;--terra:#d97757;--brass:#e8b866;--green:#4f8a5b;--green-ink:#3b7347;--red:#c2452d;--display:Gloock,Prata,ui-serif,'New York',Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;--mono:ui-monospace,'SF Mono',Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1)}.ds-steps{margin:0;padding:2rem;list-style:none;background:var(--night);counter-reset:s}.ds-steps li{counter-increment:s;display:flex;flex-direction:column;gap:.7rem;max-width:20rem;padding:1.5rem 1.4rem;border-radius:18px;background:var(--night-2);box-shadow:inset 0 0 0 1px var(--plum-line);font-family:var(--sans)}.ds-steps li::before{content:counter(s);font:400 2.4rem/1 var(--display);color:var(--brass)}.ds-steps h3{margin:0;font:600 1.25rem/1.3 var(--sans);color:var(--text)}.ds-steps p{margin:0;color:var(--text-2);font-size:.9375rem}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lobby at Night",
+    "overview": "Porter's macOS app lives on warm paper with terracotta and serif titles. The web renders that same world after hours: a deep plum lobby, darkened from the porter's uniform, where the app's paper cards glow like lit objects on a desk. Nothing on the night ground pretends to be the app; everything on paper is the app, rebuilt at its real scale with its real states (usage bars, the limit error, reset times).\n\nDensity is calm and editorial: wide sections on one shared rhythm, a two-column split of copy against an object, and one authored moment of motion. Depth comes from light, not from chrome: soft lamplight gradients in the plum, long diffuse shadows under the paper objects, and a brass line that marks the porter's route. Detail is brass; action is terracotta; status is the app's own green, orange and red.\n\nThe world takes its type from the app's serif titles, set in Gloock (Prata for Cyrillic, the native Mincho/Song/Myeongjo serif for CJK), with the Mac system face for everything read and SF Mono only for real paths and commands.",
+    "keyCharacteristics": [
+      "Plum night ground (#1c1420) with radial lamplight in the uniform plum (#57406b).",
+      "App paper (#fffdf9 / #f5f0e8) for every object that represents Porter's UI.",
+      "One terracotta action, brass for detail and path, usage colors only for usage.",
+      "High-contrast serif display, system sans body, mono only for literal code.",
+      "One scroll-scrubbed signature moment; everything else is still."
+    ],
+    "rules": [
+      {
+        "name": "The Lit Object Rule",
+        "body": "Paper appears on the night ground only as an object from Porter's own UI (account card, session, panel, window, ledger). Paper is never a generic section background.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Action Rule",
+        "body": "Terracotta fills exactly one kind of thing on the night ground: the download button. Every other accent on night is brass.",
+        "section": "colors"
+      },
+      {
+        "name": "The Usage Colors Rule",
+        "body": "Green, orange and red mean usage state, with the app's thresholds (under 75, 75 to 99, 100). They are never decoration. Orange is a bar fill, not text on paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Weight Serif Rule",
+        "body": "Gloock is set at 400 only; hierarchy comes from size and color, never bold serif.",
+        "section": "typography"
+      },
+      {
+        "name": "The Script-Native Serif Rule",
+        "body": "Each language gets a display serif made for its script: Prata for Cyrillic; on ja, zh-Hans and ko pages the display stack swaps to Hiragino Mincho, Songti or AppleMyungjo, the CJK hero drops to clamp(2.3rem, 4.4vw, 4.4rem) at 1.12, and Japanese breaks by phrase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Real Code Rule",
+        "body": "Monospace marks something the reader could type or find on disk. It is not a style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Light Falls Off Rule",
+        "body": "Shadows are long, soft and pulled in by negative spread; no hard offsets, no colored shadows. On night, outline with an inset hairline rather than lifting.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** set every app object on paper at the app's real proportions, with real states and an \"Example data\" caption.",
+      "**Do** keep terracotta for the download action and brass for every other accent on night.",
+      "**Do** use the shared ease (cubic-bezier(.16, 1, .3, 1)) for every transition and keep motion to the carry plus small state changes.",
+      "**Do** give every language a display serif made for its script and test the hero headline in ja, zh-Hans, ko and ru.",
+      "**Do** outline night surfaces with an inset plum-line hairline and float paper objects on long, soft negative-spread shadows.",
+      "**Do** honor reduced motion by showing the end state, not a frozen midpoint."
+    ],
+    "donts": [
+      "**Don't** use Claude or Anthropic marks, logos or trade dress; the bellhop is the only mascot.",
+      "**Don't** use green, orange or red for anything but usage state.",
+      "**Don't** set Gloock bold or use a second display face for Latin text.",
+      "**Don't** add a second scroll-driven or ambient motion moment; the carry is the page's one authored motion.",
+      "**Don't** use monospace for anything that is not a literal path, file or command.",
+      "**Don't** invent numbers: usage figures are labeled example data, and there are no counts, ratings or testimonials."
+    ]
+  }
+}

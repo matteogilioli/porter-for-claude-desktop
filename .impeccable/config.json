@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "site/template.html"
+        ],
+        "createdAt": "2026-10-21T10:59:13.332Z",
+        "reason": "Claude: the raw template links its CSS through an unresolved {{base}} placeholder, so the scan sees unstyled HTML; the built pages in docs/ load site.css, where h1/h2 are 3-5.6rem over a 1.0625rem body"
+      }
+    ]
+  }
+}

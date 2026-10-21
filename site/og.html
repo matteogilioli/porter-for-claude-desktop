@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../docs/assets/site.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: var(--night); display: grid; grid-template-columns: 560px 1fr; align-items: center; padding: 0 72px; gap: 40px; position: relative; }
+  body::before { content: ""; position: absolute; inset: 0 -200px -200px 420px; background: radial-gradient(closest-side, rgb(87 64 107 / .6), transparent 75%); }
+  .t { position: relative; }
+  .brand-og { display: flex; align-items: center; gap: 14px; font: 400 34px/1 var(--display); color: var(--text); }
+  .brand-og img { width: 56px; height: 56px; border-radius: 13px; }
+  h1 { margin-top: 44px; font: 400 78px/.98 var(--display); letter-spacing: -.025em; color: var(--text); }
+  h1 span { display: block; } h1 .accent { color: var(--brass); }
+  p { margin-top: 28px; font-size: 22px; color: var(--text-2); }
+  .cards { position: relative; height: 420px; }
+  .account { width: 290px; }
+  .session { width: 250px; }
+  .session { transform: translate3d(150px, 112px, 0) rotate(-3deg); --lift: 1; }
+  .session-title, .session-top { color: var(--ink); }
+</style></head>
+<body>
+<div class="t">
+  <div class="brand-og"><img src="../assets/icon.png" alt=""> Porter <span style="font-size:20px;color:var(--text-3);font-family:var(--sans)">for Claude Desktop</span></div>
+  <h1><span>Hit the limit.</span><span class="accent">Keep the conversation.</span></h1>
+  <p>Free, open-source macOS menu-bar app</p>
+</div>
+<div class="cards">
+  <article class="account account-a"><header><span class="dot"></span><h3>Work</h3><span class="badge warn">1 stopped by limit</span></header>
+    <div class="bars"><div class="bar"><span>5h</span><i style="--v:100" data-tone="red"></i><b>100%</b></div><div class="bar"><span>7d</span><i style="--v:64" data-tone="green"></i><b>64%</b></div></div><div class="slot" style="height:56px"></div></article>
+  <article class="account account-b" style="bottom:0"><header><span class="dot"></span><h3>Personal</h3></header>
+    <div class="bars"><div class="bar"><span>5h</span><i style="--v:12" data-tone="green"></i><b>12%</b></div><div class="bar"><span>7d</span><i style="--v:31" data-tone="green"></i><b>31%</b></div></div><div class="slot" style="height:56px"></div></article>
+  <article class="session"><img class="porter-ride" src="../assets/icon.png" width="34" height="34" alt="">
+    <div class="session-top"><span class="session-project">api-server</span></div>
+    <p class="session-title">Refactor the auth middleware</p>
+    <p class="session-status"><span class="status-error">You've hit your limit · resets 20:59</span></p></article>
+</div>
+</body></html>

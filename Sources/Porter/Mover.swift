@@ -145,7 +145,7 @@ enum Mover {
         }
         outcome.report.insert(tr("Backup: %@", backup.path), at: 0)
         if skipped > 0 {
-            outcome.report.append(tr("Skipped %ld session(s) that %@ would overwrite while it is open: turn on the restart to move them.",
+            outcome.report.append(tr("Skipped %ld session(s) that %@ would overwrite while it is open: let Porter restart it to move them.",
                                      skipped, plan.target.dataDir.label))
         }
         if effects.targetStaysOpen && !sessions.isEmpty {
@@ -392,7 +392,7 @@ enum SessionActions {
                 }
                 outcome.report.append(tr("Moved %ld session(s) to the Trash.", files.count))
                 let conversations = Transcripts.trash(orphaned)
-                if conversations > 0 { outcome.report.append(tr("%ld conversation(s) no other account lists went to the Trash too.", conversations)) }
+                if conversations > 0 { outcome.report.append(tr("%ld conversation(s) that no other account lists also went to the Trash.", conversations)) }
             }
         } catch {
             backup?.restore()

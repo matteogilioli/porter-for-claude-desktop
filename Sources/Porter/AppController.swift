@@ -108,6 +108,7 @@ final class AppController: NSObject, ObservableObject {
     @Published private(set) var activity: String?
     @Published private(set) var multipleProfiles = Settings.multipleProfiles
     @Published private(set) var launchAtLogin = SMAppService.mainApp.status == .enabled
+    @Published private(set) var routeLinks = LinkRouter.isEnabled
     /// The account shown in the main window (a store key).
     @Published var selectedKey: String?
     @Published var moveDraft: MoveDraft?
@@ -181,6 +182,7 @@ final class AppController: NSObject, ObservableObject {
             panel.close()
         } else {
             launchAtLogin = SMAppService.mainApp.status == .enabled
+            routeLinks = LinkRouter.isEnabled
             panel.show(below: button)
             // Show what we have now and fresh data a moment later.
             reload()
@@ -193,6 +195,12 @@ final class AppController: NSObject, ObservableObject {
         profiles.target = self
         profiles.state = multipleProfiles ? .on : .off
         menu.addItem(profiles)
+        if showsRouteLinks {
+            let links = NSMenuItem(title: tr("Open Links in the Right Profile"), action: #selector(menuToggleLinks), keyEquivalent: "")
+            links.target = self
+            links.state = LinkRouter.isEnabled ? .on : .off
+            menu.addItem(links)
+        }
         let login = NSMenuItem(title: tr("Launch at Login"), action: #selector(menuToggleLogin), keyEquivalent: "")
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
@@ -207,6 +215,7 @@ final class AppController: NSObject, ObservableObject {
 
     @objc private func menuToggleProfiles() { toggleMultipleProfiles() }
     @objc private func menuToggleLogin() { toggleLaunchAtLogin() }
+    @objc private func menuToggleLinks() { toggleRouteLinks() }
     @objc private func menuShowBackups() { showBackups() }
 
     // MARK: - What the panel shows
@@ -614,6 +623,29 @@ final class AppController: NSObject, ObservableObject {
         panel.close()
         try? FileManager.default.createDirectory(atPath: Paths.backups, withIntermediateDirectories: true)
         NSWorkspace.shared.open(URL(fileURLWithPath: Paths.backups))
+    }
+
+    /// The option only matters with several profiles; it stays visible while on, so it can be turned off.
+    var showsRouteLinks: Bool { multipleProfiles || routeLinks }
+
+    func toggleRouteLinks() {
+        panel.close()
+        let on = !LinkRouter.isEnabled
+        let apply = { [weak self] in
+            LinkRouter.setEnabled(on) { error in
+                if let error {
+                    Dialog.inform(tr("Could not change the app for Claude links"), error.localizedDescription, style: .warning)
+                }
+                self?.routeLinks = LinkRouter.isEnabled
+            }
+        }
+        guard on else { return apply() }
+        let alert = NSAlert()
+        alert.messageText = tr("Open links in the right profile?")
+        alert.informativeText = tr("All your profiles are the same Claude app, so when the browser sends you back to Claude (after signing in, for example), macOS picks one of the open profiles, not necessarily the one you came from.\n\nWith this on, Porter receives Claude links and passes each one to the profile you used last. The first time, macOS may ask to let Porter control Claude: that is how the link is passed on. Keep Porter running (Launch at Login), so it knows which profile you used last.")
+        alert.addButton(withTitle: tr("Turn On"))
+        alert.addButton(withTitle: tr("Cancel"))
+        Dialog.show(alert) { if $0 == .alertFirstButtonReturn { apply() } }
     }
 
     func toggleLaunchAtLogin() {

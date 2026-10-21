@@ -35,6 +35,10 @@ cat > "$APP/Contents/Info.plist" <<EOF
   <key>CFBundleVersion</key><string>${VERSION}</string>
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
+  <key>CFBundleURLTypes</key>
+  <array><dict><key>CFBundleURLName</key><string>Claude links</string>
+    <key>CFBundleURLSchemes</key><array><string>claude</string></array></dict></array>
+  <key>NSAppleEventsUsageDescription</key><string>Porter passes Claude links to the Claude profile you used last.</string>
   <key>NSHumanReadableCopyright</key><string>MIT License</string>
 </dict></plist>
 EOF

@@ -40,6 +40,7 @@ Di solito Claude Desktop usa un account alla volta: per cambiarlo devi uscire e 
 - Crea tutti i profili che ti servono, uno per account (lavoro, personale, un cliente…). Funzionano **tutti insieme**, nel Dock e con ⌘-Tab come qualsiasi app.
 - Porter elenca ogni profilo con il suo account, l'ultimo utilizzo registrato e le sessioni ferme per un limite. Puoi aprirlo o portarlo in primo piano, rinominarlo o rimuoverlo.
 - Spostare le sessioni da un profilo all'altro richiede un clic, e quando un account si esaurisce continui a lavorare nella finestra successiva.
+- **Apri i link nel profilo giusto** (nelle opzioni): tutti i profili sono la stessa app Claude, quindi dopo l'accesso nel browser macOS può rimandarti a uno qualsiasi di quelli aperti. Con questa opzione Porter passa i link di Claude al profilo che hai usato per ultimo.
 
 Preferisci un solo Claude Desktop e cambiare account uscendo e rientrando? Disattiva **Più profili** nelle Opzioni: Porter elencherà gli account invece delle app e sposterà le sessioni del vecchio account su quello con cui hai fatto l'accesso.
 

@@ -40,6 +40,7 @@ Claude Desktop normally runs one account at a time: to use another one you sign 
 - Make as many profiles as you have accounts (work, personal, a client…). They all run **at the same time**, in the Dock and with ⌘-Tab like any app.
 - Porter lists every profile with its account, its latest usage and the sessions stopped by a limit. It opens or brings each one to the front, renames it or removes it.
 - Moving sessions between profiles is one click, and when one account runs out you just keep working in the next window.
+- **Open Links in the Right Profile** (in the options): all profiles are the same Claude app, so after you sign in in the browser macOS may send you back to any open one. With this on, Porter passes Claude links to the profile you used last.
 
 Prefer one Claude Desktop and switching accounts by signing out and in? Turn off **Multiple Profiles** in the settings: Porter then lists accounts instead of apps and moves the old account's sessions to the one you are signed in to.
 

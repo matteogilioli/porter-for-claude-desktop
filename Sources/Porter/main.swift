@@ -6,6 +6,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.mainMenu = Self.mainMenu()
         controller = AppController()
+        LinkRouter.start()
+    }
+
+    /// Claude links, when Porter is the app for them (see LinkRouter).
+    func application(_ application: NSApplication, open urls: [URL]) {
+        urls.filter { $0.scheme == LinkRouter.scheme }.forEach(LinkRouter.open)
     }
 
     /// The menu bar shown while the main window is open (the app is then in the Dock).

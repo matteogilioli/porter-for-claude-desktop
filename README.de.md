@@ -40,6 +40,7 @@ Claude Desktop läuft normalerweise mit einem Konto zugleich: Für ein anderes m
 - Lege so viele Profile an, wie du Konten hast (Arbeit, privat, ein Kunde …). Alle laufen **gleichzeitig**, im Dock und mit ⌘-Tab wie jede andere App.
 - Porter listet jedes Profil mit Konto, zuletzt erfasster Nutzung und den durch ein Limit gestoppten Sitzungen auf. Du kannst es öffnen oder in den Vordergrund holen, umbenennen oder entfernen.
 - Sitzungen zwischen Profilen zu verschieben ist ein Klick, und wenn ein Konto ausgeschöpft ist, arbeitest du einfach im nächsten Fenster weiter.
+- **Links im richtigen Profil öffnen** (in den Optionen): Alle Profile sind dieselbe Claude-App, daher kann dich macOS nach der Anmeldung im Browser zu einem beliebigen offenen Profil zurückschicken. Mit dieser Option gibt Porter Claude-Links an das zuletzt verwendete Profil weiter.
 
 Lieber ein einziges Claude Desktop und die Konten per Ab- und Anmelden wechseln? Schalte **Mehrere Profile** in den Optionen aus: Porter listet dann Konten statt Apps auf und verschiebt die Sitzungen des alten Kontos auf das Konto, bei dem du gerade angemeldet bist.
 

@@ -164,6 +164,10 @@ struct SettingsMenu: View {
         Menu {
             Toggle(tr("Multiple Profiles"), isOn: Binding(get: { controller.multipleProfiles },
                                                          set: { _ in controller.toggleMultipleProfiles() }))
+            if controller.showsRouteLinks {
+                Toggle(tr("Open Links in the Right Profile"), isOn: Binding(get: { controller.routeLinks },
+                                                                           set: { _ in controller.toggleRouteLinks() }))
+            }
             Toggle(tr("Launch at Login"), isOn: Binding(get: { controller.launchAtLogin },
                                                        set: { _ in controller.toggleLaunchAtLogin() }))
             Divider()

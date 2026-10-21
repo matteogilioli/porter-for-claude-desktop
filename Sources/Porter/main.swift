@@ -7,6 +7,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.mainMenu = Self.mainMenu()
         controller = AppController()
         LinkRouter.start()
+        Updater.shared.start()
     }
 
     /// Claude links, when Porter is the app for them (see LinkRouter).

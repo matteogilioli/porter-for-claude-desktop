@@ -22,8 +22,20 @@ jobs:
         with:
           name: Porter
           path: dist/Porter.dmg
+      - name: Update feed
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: |
+          KEY="$RUNNER_TEMP/sparkle.key"
+          printf '%s' "$SPARKLE_PRIVATE_KEY" > "$KEY"
+          VERSION="${GITHUB_REF_NAME#v}" SPARKLE_KEY_FILE="$KEY" ./scripts/make-appcast.sh
+          rm -f "$KEY"
       - name: Release
         if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/Porter.dmg --generate-notes --title "$GITHUB_REF_NAME"
+        # The notes are written by hand in release-notes/, and Sparkle shows the same text.
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/Porter.dmg dist/appcast.xml \
+            --notes-file "release-notes/${GITHUB_REF_NAME#v}.md" --title "$GITHUB_REF_NAME"

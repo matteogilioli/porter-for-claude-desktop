@@ -30,6 +30,8 @@ enum Localization {
     // MARK: - Italian
 
     static let it: [String: String] = [
+        "Check for Updates Automatically": "Verifica aggiornamenti automaticamente",
+        "Check for Updates…": "Verifica aggiornamenti…",
         "%ld already up to date in the destination.": "%ld già aggiornate nella destinazione.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld sono già nella destinazione: copiandole di nuovo ne fai un'altra copia.",
         "Cannot read %@.": "Impossibile leggere %@.",
@@ -207,6 +209,8 @@ enum Localization {
     // MARK: - Spanish
 
     static let es: [String: String] = [
+        "Check for Updates Automatically": "Buscar actualizaciones automáticamente",
+        "Check for Updates…": "Buscar actualizaciones…",
         "%ld already up to date in the destination.": "%ld ya están al día en el destino.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld ya están en el destino: copiarlas de nuevo crea otra copia de cada una.",
         "Cannot read %@.": "No se puede leer %@.",
@@ -384,6 +388,8 @@ enum Localization {
     // MARK: - French
 
     static let fr: [String: String] = [
+        "Check for Updates Automatically": "Rechercher les mises à jour automatiquement",
+        "Check for Updates…": "Rechercher les mises à jour…",
         "%ld already up to date in the destination.": "%ld déjà à jour dans la destination.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld sont déjà dans la destination : les copier à nouveau en crée une autre copie.",
         "Cannot read %@.": "Impossible de lire %@.",
@@ -561,6 +567,8 @@ enum Localization {
     // MARK: - German
 
     static let de: [String: String] = [
+        "Check for Updates Automatically": "Automatisch nach Updates suchen",
+        "Check for Updates…": "Nach Updates suchen…",
         "%ld already up to date in the destination.": "%ld sind im Ziel bereits aktuell.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld sind bereits im Ziel: Erneutes Kopieren erstellt von jeder eine weitere Kopie.",
         "Cannot read %@.": "%@ kann nicht gelesen werden.",
@@ -738,6 +746,8 @@ enum Localization {
     // MARK: - Portuguese (Brazil)
 
     static let ptBR: [String: String] = [
+        "Check for Updates Automatically": "Procurar atualizações automaticamente",
+        "Check for Updates…": "Procurar atualizações…",
         "%ld already up to date in the destination.": "%ld já estão atualizadas no destino.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld já estão no destino: copiá-las de novo cria outra cópia de cada uma.",
         "Cannot read %@.": "Não foi possível ler %@.",
@@ -915,6 +925,8 @@ enum Localization {
     // MARK: - Chinese (Simplified)
 
     static let zhHans: [String: String] = [
+        "Check for Updates Automatically": "自动检查更新",
+        "Check for Updates…": "检查更新…",
         "%ld already up to date in the destination.": "%ld 个在目标位置已是最新。",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld 个已在目标位置：再次复制会为每个再创建一个副本。",
         "Cannot read %@.": "无法读取 %@。",
@@ -1092,6 +1104,8 @@ enum Localization {
     // MARK: - Japanese
 
     static let ja: [String: String] = [
+        "Check for Updates Automatically": "アップデートを自動的に確認",
+        "Check for Updates…": "アップデートを確認…",
         "%ld already up to date in the destination.": "%ld 件は移動先ですでに最新です。",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld 件はすでに移動先にあります。もう一度コピーすると、それぞれ別のコピーが作られます。",
         "Cannot read %@.": "%@ を読み込めません。",
@@ -1269,6 +1283,8 @@ enum Localization {
     // MARK: - Korean
 
     static let ko: [String: String] = [
+        "Check for Updates Automatically": "자동으로 업데이트 확인",
+        "Check for Updates…": "업데이트 확인…",
         "%ld already up to date in the destination.": "%ld개는 대상에서 이미 최신 상태입니다.",
         "%ld are already in the destination: copying them again makes another copy of each.": "%ld개는 이미 대상에 있습니다. 다시 복사하면 각각 또 하나의 사본이 생깁니다.",
         "Cannot read %@.": "%@을(를) 읽을 수 없습니다.",
@@ -1446,6 +1462,8 @@ enum Localization {
     // MARK: - Russian
 
     static let ru: [String: String] = [
+        "Check for Updates Automatically": "Проверять обновления автоматически",
+        "Check for Updates…": "Проверить обновления…",
         "%ld already up to date in the destination.": "Уже актуальны в месте назначения: %ld.",
         "%ld are already in the destination: copying them again makes another copy of each.": "Уже есть в месте назначения: %ld. Повторное копирование создаст ещё одну копию каждой.",
         "Cannot read %@.": "Не удалось прочитать %@.",

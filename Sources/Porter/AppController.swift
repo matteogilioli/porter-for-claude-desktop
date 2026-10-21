@@ -109,6 +109,7 @@ final class AppController: NSObject, ObservableObject {
     @Published private(set) var multipleProfiles = Settings.multipleProfiles
     @Published private(set) var launchAtLogin = SMAppService.mainApp.status == .enabled
     @Published private(set) var routeLinks = LinkRouter.isEnabled
+    @Published private(set) var checksForUpdates = Updater.shared.checksAutomatically
     /// The account shown in the main window (a store key).
     @Published var selectedKey: String?
     @Published var moveDraft: MoveDraft?
@@ -183,6 +184,7 @@ final class AppController: NSObject, ObservableObject {
         } else {
             launchAtLogin = SMAppService.mainApp.status == .enabled
             routeLinks = LinkRouter.isEnabled
+            checksForUpdates = Updater.shared.checksAutomatically
             panel.show(below: button)
             // Show what we have now and fresh data a moment later.
             reload()
@@ -205,6 +207,15 @@ final class AppController: NSObject, ObservableObject {
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
+        if Updater.shared.isAvailable {
+            let auto = NSMenuItem(title: tr("Check for Updates Automatically"), action: #selector(menuToggleUpdates), keyEquivalent: "")
+            auto.target = self
+            auto.state = Updater.shared.checksAutomatically ? .on : .off
+            menu.addItem(auto)
+            let check = NSMenuItem(title: tr("Check for Updates…"), action: #selector(menuCheckForUpdates), keyEquivalent: "")
+            check.target = self
+            menu.addItem(check)
+        }
         let backups = NSMenuItem(title: tr("Show Backups"), action: #selector(menuShowBackups), keyEquivalent: "")
         backups.target = self
         menu.addItem(backups)
@@ -216,6 +227,8 @@ final class AppController: NSObject, ObservableObject {
     @objc private func menuToggleProfiles() { toggleMultipleProfiles() }
     @objc private func menuToggleLogin() { toggleLaunchAtLogin() }
     @objc private func menuToggleLinks() { toggleRouteLinks() }
+    @objc private func menuToggleUpdates() { toggleChecksForUpdates() }
+    @objc private func menuCheckForUpdates() { checkForUpdates() }
     @objc private func menuShowBackups() { showBackups() }
 
     // MARK: - What the panel shows
@@ -646,6 +659,16 @@ final class AppController: NSObject, ObservableObject {
         alert.addButton(withTitle: tr("Turn On"))
         alert.addButton(withTitle: tr("Cancel"))
         Dialog.show(alert) { if $0 == .alertFirstButtonReturn { apply() } }
+    }
+
+    func toggleChecksForUpdates() {
+        Updater.shared.checksAutomatically.toggle()
+        checksForUpdates = Updater.shared.checksAutomatically
+    }
+
+    func checkForUpdates() {
+        panel.close()
+        Updater.shared.checkForUpdates()
     }
 
     func toggleLaunchAtLogin() {

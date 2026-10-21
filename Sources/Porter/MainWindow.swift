@@ -170,6 +170,11 @@ struct SettingsMenu: View {
             }
             Toggle(tr("Launch at Login"), isOn: Binding(get: { controller.launchAtLogin },
                                                        set: { _ in controller.toggleLaunchAtLogin() }))
+            if Updater.shared.isAvailable {
+                Toggle(tr("Check for Updates Automatically"), isOn: Binding(get: { controller.checksForUpdates },
+                                                                           set: { _ in controller.toggleChecksForUpdates() }))
+                Button(tr("Check for Updates…")) { controller.checkForUpdates() }
+            }
             Divider()
             Button(tr("Show Backups")) { controller.showBackups() }
             Divider()

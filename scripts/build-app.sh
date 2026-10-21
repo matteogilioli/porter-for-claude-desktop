@@ -12,8 +12,10 @@ swift build -c release --arch arm64 --arch x86_64
 BIN="$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/Porter"
 
 rm -rf "$APP"
-mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$APP/Contents/Frameworks"
 cp "$BIN" "$APP/Contents/MacOS/Porter"
+# The updater; -R keeps its symlinks, which its code signature covers.
+cp -R "$(dirname "$BIN")/Sparkle.framework" "$APP/Contents/Frameworks/"
 ICONSET="$(mktemp -d)/AppIcon.iconset"
 "$BIN" --write-iconset "$ICONSET"
 iconutil -c icns "$ICONSET" -o "$APP/Contents/Resources/AppIcon.icns"
@@ -38,6 +40,9 @@ cat > "$APP/Contents/Info.plist" <<EOF
   <key>CFBundleURLTypes</key>
   <array><dict><key>CFBundleURLName</key><string>Claude links</string>
     <key>CFBundleURLSchemes</key><array><string>claude</string></array></dict></array>
+  <key>SUFeedURL</key><string>https://github.com/matteogilioli/porter-for-claude-desktop/releases/latest/download/appcast.xml</string>
+  <key>SUPublicEDKey</key><string>ix+zqSlkITXuV5fslQDG+/wU8/y+tDuJMBemA7Gwkew=</string>
+  <key>SUEnableAutomaticChecks</key><true/>
   <key>NSAppleEventsUsageDescription</key><string>Porter passes Claude links to the Claude profile you used last.</string>
   <key>NSHumanReadableCopyright</key><string>MIT License</string>
 </dict></plist>

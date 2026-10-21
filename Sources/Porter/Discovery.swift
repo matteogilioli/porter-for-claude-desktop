@@ -13,6 +13,33 @@ struct Usage {
     let fiveHour: Int?
     let sevenDay: Int?
     let sampledAt: Date
+    /// Every limit claude.ai reports (the session, the week, the week of one model…), with when it
+    /// resets. Empty for usage read from Claude Desktop's file, which only has the first two.
+    var limits: [Limit] = []
+
+    struct Limit: Hashable {
+        let label: String
+        let percent: Int
+        let resetsAt: Date?
+    }
+
+    /// What to draw: the limits claude.ai reported, or the two windows of the file.
+    struct Window: Hashable {
+        let label: String
+        let percent: Int
+        let resetsAt: Date?
+        /// The window has started over since the sample.
+        let expired: Bool
+    }
+
+    var windows: [Window] {
+        if !limits.isEmpty {
+            return limits.map { Window(label: $0.label, percent: $0.percent, resetsAt: $0.resetsAt,
+                                       expired: $0.resetsAt.map { $0 < Date() } ?? false) }
+        }
+        return [Window(label: "5h", percent: fiveHour ?? 0, resetsAt: nil, expired: fiveHourExpired),
+                Window(label: "7d", percent: sevenDay ?? 0, resetsAt: nil, expired: sevenDayExpired)]
+    }
 
     /// Claude Desktop records usage only now and then: a sample older than a window means that
     /// window has started over since, whatever the sample says.
@@ -145,7 +172,10 @@ enum Discovery {
         let fm = FileManager.default
         let root = dir.sessionsRoot
         let samples = usageSamples(in: dir)
-        let activeOrg = signedIn.flatMap { self.activeOrg(samples, among: Set((try? fm.contentsOfDirectory(atPath: "\(root)/\($0)")) ?? [])) }
+        let orgs = signedIn.map { Set((try? fm.contentsOfDirectory(atPath: "\(root)/\($0)")) ?? []) } ?? []
+        // The organization claude.ai answered for is the active one; the samples are only a guess.
+        let live = signedIn == nil ? nil : LiveUsage.sample(in: dir).flatMap { orgs.contains($0.org) ? $0 : nil }
+        let activeOrg = live?.org ?? self.activeOrg(samples, among: orgs)
         var result: [Store] = []
         for account in (try? fm.contentsOfDirectory(atPath: root)) ?? [] {
             for org in (try? fm.contentsOfDirectory(atPath: "\(root)/\(account)")) ?? [] {
@@ -160,7 +190,7 @@ enum Discovery {
                 guard !sessions.isEmpty || (isSignedIn && hasEverHeldSessions(path)) else { continue }
                 result.append(Store(dataDir: dir, accountUuid: account, orgUuid: org, path: path,
                                     sessions: sessions, isSignedIn: isSignedIn,
-                                    usage: isSignedIn ? usage(samples, org: org) : nil))
+                                    usage: isSignedIn ? newest(live.flatMap { $0.org == org ? $0.usage : nil }, usage(samples, org: org)) : nil))
             }
         }
         return result.sorted { ($0.isSignedIn ? 0 : 1, -$0.open.count) < ($1.isSignedIn ? 0 : 1, -$1.open.count) }
@@ -338,6 +368,11 @@ enum Discovery {
             .max { ($0["t"] as? Double ?? 0) < ($1["t"] as? Double ?? 0) }?["org"] as? String
     }
 
+    private static func newest(_ a: Usage?, _ b: Usage?) -> Usage? {
+        guard let a, let b else { return a ?? b }
+        return a.sampledAt >= b.sampledAt ? a : b
+    }
+
     /// Latest usage sample the app recorded for this org (only meaningful for the signed-in account).
     /// Claude Desktop stores the raw utilization, which can have decimals; it shows it rounded down.
     private static func usage(_ samples: [[String: Any]], org: String) -> Usage? {
@@ -499,6 +534,12 @@ enum Settings {
     static var seenDataDirs: [String] {
         get { defaults.stringArray(forKey: "seenDataDirs") ?? [] }
         set { defaults.set(newValue, forKey: "seenDataDirs") }
+    }
+
+    /// Ask claude.ai for usage with each profile's session (LiveUsage). Off by default: it needs the Keychain.
+    static var liveUsage: Bool {
+        get { defaults.bool(forKey: "liveUsage") }
+        set { defaults.set(newValue, forKey: "liveUsage") }
     }
 
     /// Show the Claude Profiles section (several Claude apps side by side). Off means the classic

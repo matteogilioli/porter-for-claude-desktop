@@ -168,9 +168,13 @@ struct SettingsMenu: View {
                 Toggle(tr("Open Links in the Right Profile"), isOn: Binding(get: { controller.routeLinks },
                                                                            set: { _ in controller.toggleRouteLinks() }))
             }
+            Divider()
+            Toggle(tr("Live Usage"), isOn: Binding(get: { controller.liveUsage },
+                                                   set: { _ in controller.toggleLiveUsage() }))
             Toggle(tr("Launch at Login"), isOn: Binding(get: { controller.launchAtLogin },
                                                        set: { _ in controller.toggleLaunchAtLogin() }))
             if Updater.shared.isAvailable {
+                Divider()
                 Toggle(tr("Check for Updates Automatically"), isOn: Binding(get: { controller.checksForUpdates },
                                                                            set: { _ in controller.toggleChecksForUpdates() }))
                 Button(tr("Check for Updates…")) { controller.checkForUpdates() }

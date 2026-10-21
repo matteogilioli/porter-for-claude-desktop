@@ -131,7 +131,7 @@ PORTER="/Applications/Porter for Claude Desktop.app/Contents/MacOS/Porter"
 ## 须知
 
 - **撤销：**每次更改都会先在 `~/Library/Application Support/Porter/backups` 中备份。要撤销一次移动，请退出 Claude Desktop，把备份的文件拷回备份中 `README.txt` 所写的路径。
-- **用量数字**来自 Claude Desktop 的记录，它在你使用账户期间会不定时记录。Porter 会显示数值是多久以前的。
+- **用量数字**来自 Claude Desktop 的记录，它在你使用账户期间会不定时记录。Porter 会显示数值是多久以前的。开启**实时用量**（在选项中）后，Porter 会改为每隔几分钟用每个配置的会话向 claude.ai 获取用量，并显示每个限额的重置时间以及单个模型（如 Fable）的限额。macOS 会询问一次是否允许 Porter 使用 Claude 保存在钥匙串中的密钥。
 - **同一时间只在一处：**不要同时在两个账户中继续处理同一个会话。移动会归档原会话正是出于这个原因；确实需要两个独立的会话时，请使用“拷贝”。
 - 请只使用你自己的账户，并遵守你的 Claude 套餐条款。
 

@@ -131,7 +131,7 @@ Porter ne ferme un Claude Desktop ouvert qu'avec `--restart` (il le rouvre ensui
 ## Bon à savoir
 
 - **Annuler :** chaque modification commence par une sauvegarde dans `~/Library/Application Support/Porter/backups`. Pour annuler un déplacement, quittez Claude Desktop et recopiez les fichiers sauvegardés vers le chemin indiqué dans le `README.txt` de la sauvegarde.
-- **Les chiffres d'utilisation** proviennent de ce que Claude Desktop enregistre, ce qu'il fait de temps en temps pendant que vous utilisez un compte. Porter indique l'ancienneté de chaque valeur.
+- **Les chiffres d'utilisation** proviennent de ce que Claude Desktop enregistre, ce qu'il fait de temps en temps pendant que vous utilisez un compte. Porter indique l'ancienneté de chaque valeur. Avec **Utilisation en direct** activée (dans les options), Porter interroge plutôt claude.ai toutes les quelques minutes, avec la session de chaque profil, et affiche aussi quand chaque limite se réinitialise et les limites propres à un modèle, comme Fable. macOS demande une fois d'autoriser Porter à utiliser la clé que Claude garde dans le trousseau.
 - **Un seul endroit à la fois :** ne continuez pas à travailler sur la même session depuis deux comptes en même temps. C'est pourquoi le déplacement archive l'original ; utilisez Copier quand vous voulez vraiment deux sessions indépendantes.
 - N'utilisez que des comptes qui vous appartiennent et respectez les conditions de votre abonnement Claude.
 

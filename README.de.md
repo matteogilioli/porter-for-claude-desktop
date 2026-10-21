@@ -131,7 +131,7 @@ Porter beendet ein laufendes Claude Desktop nur mit `--restart` (und öffnet es 
 ## Gut zu wissen
 
 - **Rückgängig machen:** Jede Änderung beginnt mit einem Backup in `~/Library/Application Support/Porter/backups`. Um ein Verschieben rückgängig zu machen, beende Claude Desktop und kopiere die gesicherten Dateien in den Pfad zurück, der in der `README.txt` des Backups steht.
-- **Nutzungszahlen** stammen aus dem, was Claude Desktop aufzeichnet, und zwar hin und wieder, während du ein Konto verwendest. Porter zeigt, wie alt ein Wert ist.
+- **Nutzungszahlen** stammen aus dem, was Claude Desktop aufzeichnet, und zwar hin und wieder, während du ein Konto verwendest. Porter zeigt, wie alt ein Wert ist. Mit **Live-Nutzung** (in den Optionen) fragt Porter stattdessen alle paar Minuten claude.ai, mit der Sitzung jedes Profils, und zeigt auch, wann jedes Limit zurückgesetzt wird, sowie Limits für ein einzelnes Modell wie Fable. macOS fragt einmal, ob Porter den Schlüssel verwenden darf, den Claude im Schlüsselbund aufbewahrt.
 - **Immer nur an einem Ort:** Arbeite nicht gleichzeitig von zwei Konten aus an derselben Sitzung weiter. Deshalb archiviert das Verschieben das Original; nutze Kopieren, wenn du wirklich zwei unabhängige Sitzungen willst.
 - Verwende nur Konten, die dir gehören, und halte die Bedingungen deines Claude-Tarifs ein.
 

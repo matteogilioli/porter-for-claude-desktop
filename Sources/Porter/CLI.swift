@@ -3,6 +3,7 @@ import Foundation
 /// Command-line mode, for scripting and debugging. Without any of these flags the menu-bar app starts.
 ///
 ///     Porter --list [--data-dir PATH ...]
+///     Porter --usage-json            (claude.ai's usage answer for each profile; needs Live Usage)
 ///     Porter --move --from STORE_PATH --to STORE_PATH [--session ID ...]
 ///                        [--copy] [--restart] [--dry-run] [--include-archived] [--data-dir PATH ...]
 ///
@@ -20,6 +21,14 @@ enum CLI {
                 return 1
             }
         }
+        if args.contains("--usage-json") {
+            // What claude.ai answers for each profile, to see which limits it reports (needs Live Usage).
+            for dir in Discovery.dataDirs(running: []) {
+                print("== \(dir.label)")
+                print(LiveUsage.sample(in: dir)?.response.flatMap { String(data: $0, encoding: .utf8) } ?? "no answer")
+            }
+            return 0
+        }
         guard args.contains("--list") || args.contains("--move") else { return nil }
         Discovery.extraDataDirs = values("--data-dir", args).map(Paths.normalize)
         return args.contains("--move") ? move(args) : list()
@@ -32,7 +41,11 @@ enum CLI {
             print("\(store.dataDir.label) [\(running)] · \(Discovery.displayName(store, includeFolder: false))"
                   + (store.isSignedIn ? " (signed in)" : "")
                   + " · \(store.open.count) open, \(store.archived.count) archived, \(store.stopped.count) stopped by limit"
-                  + (store.usage.map { " · 5h \($0.fiveHour ?? 0)% 7d \($0.sevenDay ?? 0)%" } ?? ""))
+                  + (store.usage.map { usage in
+                      " · " + usage.windows.map { w in
+                          "\(w.label) \(w.percent)%" + (w.resetsAt.map { " (resets \($0.formatted(date: .abbreviated, time: .shortened)))" } ?? "")
+                      }.joined(separator: " ") + " as of \(usage.sampledAt.formatted(date: .omitted, time: .shortened))"
+                  } ?? ""))
             print("    \(store.path)")
         }
         return 0

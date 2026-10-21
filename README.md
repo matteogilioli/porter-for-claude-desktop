@@ -131,7 +131,7 @@ Porter closes a running Claude Desktop only with `--restart` (it then reopens it
 ## Good to know
 
 - **Undo:** every change starts with a backup in `~/Library/Application Support/Porter/backups`. To undo a move, quit Claude Desktop and copy the saved files back to the path written in the backup's `README.txt`.
-- **Usage numbers** come from what Claude Desktop records, which it does now and then while you use an account. Porter shows how old a value is.
+- **Usage numbers** come from what Claude Desktop records, which it does now and then while you use an account. Porter shows how old a value is. With **Live Usage** on (in the options), Porter asks claude.ai instead, every few minutes, with each profile's own session, and also shows when each limit resets and the limits of a single model, such as Fable. macOS asks once to let Porter use the key Claude keeps in the Keychain.
 - **One place at a time:** don't keep working on the same session from two accounts at once. Moving archives the original for this reason; use Copy when you really want two independent sessions.
 - Use only accounts you own, and follow the terms of your Claude plan.
 

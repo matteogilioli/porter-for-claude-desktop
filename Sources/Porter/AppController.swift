@@ -49,6 +49,7 @@ struct Snapshot {
             h.combine(store.usage?.fiveHour)
             h.combine(store.usage?.sevenDay)
             h.combine(store.usage?.sampledAt)
+            h.combine(store.usage?.limits)
             for s in store.sessions {
                 h.combine(s.id); h.combine(s.title); h.combine(s.error); h.combine(s.lastActivity); h.combine(s.isArchived)
                 h.combine(s.cwd); h.combine(s.runCwd); h.combine(s.environmentId); h.combine(s.cliSessionId)
@@ -110,6 +111,7 @@ final class AppController: NSObject, ObservableObject {
     @Published private(set) var multipleProfiles = Settings.multipleProfiles
     @Published private(set) var launchAtLogin = SMAppService.mainApp.status == .enabled
     @Published private(set) var routeLinks = LinkRouter.isEnabled
+    @Published private(set) var liveUsage = Settings.liveUsage
     @Published private(set) var checksForUpdates = Updater.shared.checksAutomatically
     /// The account shown in the main window (a store key).
     @Published var selectedKey: String?
@@ -204,11 +206,17 @@ final class AppController: NSObject, ObservableObject {
             links.state = LinkRouter.isEnabled ? .on : .off
             menu.addItem(links)
         }
+        menu.addItem(.separator())
+        let live = NSMenuItem(title: tr("Live Usage"), action: #selector(menuToggleLiveUsage), keyEquivalent: "")
+        live.target = self
+        live.state = liveUsage ? .on : .off
+        menu.addItem(live)
         let login = NSMenuItem(title: tr("Launch at Login"), action: #selector(menuToggleLogin), keyEquivalent: "")
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
         if Updater.shared.isAvailable {
+            menu.addItem(.separator())
             let auto = NSMenuItem(title: tr("Check for Updates Automatically"), action: #selector(menuToggleUpdates), keyEquivalent: "")
             auto.target = self
             auto.state = Updater.shared.checksAutomatically ? .on : .off
@@ -217,6 +225,7 @@ final class AppController: NSObject, ObservableObject {
             check.target = self
             menu.addItem(check)
         }
+        menu.addItem(.separator())
         let backups = NSMenuItem(title: tr("Show Backups"), action: #selector(menuShowBackups), keyEquivalent: "")
         backups.target = self
         menu.addItem(backups)
@@ -228,6 +237,7 @@ final class AppController: NSObject, ObservableObject {
     @objc private func menuToggleProfiles() { toggleMultipleProfiles() }
     @objc private func menuToggleLogin() { toggleLaunchAtLogin() }
     @objc private func menuToggleLinks() { toggleRouteLinks() }
+    @objc private func menuToggleLiveUsage() { toggleLiveUsage() }
     @objc private func menuToggleUpdates() { toggleChecksForUpdates() }
     @objc private func menuCheckForUpdates() { checkForUpdates() }
     @objc private func menuShowBackups() { showBackups() }
@@ -660,6 +670,23 @@ final class AppController: NSObject, ObservableObject {
         alert.addButton(withTitle: tr("Turn On"))
         alert.addButton(withTitle: tr("Cancel"))
         Dialog.show(alert) { if $0 == .alertFirstButtonReturn { apply() } }
+    }
+
+    func toggleLiveUsage() {
+        panel.close()
+        let apply = { [weak self] (on: Bool) in
+            Settings.liveUsage = on
+            LiveUsage.reset()
+            self?.liveUsage = on
+            self?.reload()
+        }
+        guard !liveUsage else { return apply(false) }
+        let alert = NSAlert()
+        alert.messageText = tr("Ask claude.ai for live usage?")
+        alert.informativeText = tr("Claude Desktop records usage only now and then, so what Porter shows can be hours old.\n\nWith this on, Porter asks claude.ai for the usage of each profile every few minutes, with the session the profile is signed in with, as Claude's own usage screen does. Nothing else leaves your Mac.\n\nTo use that session, Porter needs the key Claude keeps in the Keychain: macOS asks for your password once. Choose Always Allow.")
+        alert.addButton(withTitle: tr("Turn On"))
+        alert.addButton(withTitle: tr("Cancel"))
+        Dialog.show(alert) { if $0 == .alertFirstButtonReturn { apply(true) } }
     }
 
     func toggleChecksForUpdates() {

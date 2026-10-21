@@ -131,7 +131,7 @@ Porter chiude un Claude Desktop aperto solo con `--restart` (poi lo riapre, e ri
 ## Da sapere
 
 - **Annullare:** ogni modifica inizia con un backup in `~/Library/Application Support/Porter/backups`. Per annullare uno spostamento, chiudi Claude Desktop e copia i file salvati nel percorso indicato nel `README.txt` del backup.
-- **I dati di utilizzo** vengono da ciò che Claude Desktop registra, cosa che fa di tanto in tanto mentre usi un account. Porter mostra quanto è vecchio ogni valore.
+- **I dati di utilizzo** vengono da ciò che Claude Desktop registra, cosa che fa di tanto in tanto mentre usi un account. Porter mostra quanto è vecchio ogni valore. Con **Utilizzo in tempo reale** attivo (nelle opzioni), Porter chiede invece i dati a claude.ai ogni pochi minuti, con la sessione di ogni profilo, e mostra anche quando si azzera ogni limite e i limiti di un singolo modello, come Fable. macOS chiede una volta di permettere a Porter di usare la chiave che Claude tiene nel Portachiavi.
 - **Un posto alla volta:** non continuare a lavorare sulla stessa sessione da due account insieme. Per questo lo spostamento archivia l'originale; usa Copia quando vuoi davvero due sessioni indipendenti.
 - Usa solo account di tua proprietà e rispetta i termini del tuo piano Claude.
 

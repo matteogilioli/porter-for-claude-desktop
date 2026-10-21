@@ -97,6 +97,12 @@ struct UsageBar: View {
     let percent: Int
     /// The window has started over since the sample: no bar, just "reset".
     var expired = false
+    /// When the window starts over, shown after the percentage.
+    var resetsAt: Date? = nil
+    /// Keep the room for a reset time even without one, so percentages line up with the bars that have it.
+    var reservesReset = false
+    /// Wide enough for the longest label of the group, so the bars line up.
+    var labelWidth: CGFloat = 15
     /// The sidebar's smaller version.
     var compact = false
 
@@ -105,7 +111,8 @@ struct UsageBar: View {
             Text(label)
                 .font(.system(size: compact ? 9 : 10, weight: .medium))
                 .foregroundStyle(Theme.secondary)
-                .frame(width: compact ? nil : 15, alignment: .leading)
+                .lineLimit(1)
+                .frame(width: compact ? nil : labelWidth, alignment: .leading)
             GeometryReader { g in
                 ZStack(alignment: .leading) {
                     Capsule().fill(Theme.track)
@@ -124,7 +131,25 @@ struct UsageBar: View {
                 .lineLimit(1)
                 .fixedSize()
                 .frame(minWidth: compact ? 28 : 32, alignment: .trailing)
+            if !compact, reservesReset || resetsAt != nil {
+                Text(resetsAt.map { expired ? "" : Self.short($0) } ?? "")
+                    .font(.system(size: 10))
+                    .monospacedDigit()
+                    .foregroundStyle(Theme.tertiary)
+                    .lineLimit(1)
+                    .frame(width: 76, alignment: .trailing)
+                    .help(resetsAt.map { tr("Resets %@", $0.formatted(date: .complete, time: .shortened)) } ?? "")
+            }
         }
+    }
+
+    /// "today" or "tomorrow" and the time, the date and time after that (a weekday would be ambiguous
+    /// a week ahead).
+    static func short(_ date: Date) -> String {
+        let time = date.formatted(date: .omitted, time: .shortened)
+        if Calendar.current.isDateInToday(date) { return tr("today, %@", time) }
+        if Calendar.current.isDateInTomorrow(date) { return tr("tomorrow, %@", time) }
+        return date.formatted(.dateTime.day().month(.abbreviated).hour().minute())
     }
 }
 
@@ -136,17 +161,24 @@ struct UsageBars: View {
 
     var body: some View {
         if let usage, compact {
+            // The session and the week; limits of one model only fit the full version.
             HStack(spacing: 8) {
-                UsageBar(label: "5h", percent: usage.fiveHour ?? 0, expired: usage.fiveHourExpired, compact: true)
-                UsageBar(label: "7d", percent: usage.sevenDay ?? 0, expired: usage.sevenDayExpired, compact: true)
+                ForEach(usage.windows.prefix(2), id: \.self) { w in
+                    UsageBar(label: w.label, percent: w.percent, expired: w.expired, compact: true)
+                }
             }
             .opacity(usage.isStale ? 0.6 : 1)
         } else if let usage {
             // A closed Claude app records nothing: an old sample is shown faded, with its age.
             let stale = usage.isStale
+            let windows = usage.windows
+            let labelWidth: CGFloat = windows.contains { $0.label.count > 2 } ? 34 : 15
+            let reservesReset = windows.contains { $0.resetsAt != nil }
             VStack(alignment: .leading, spacing: 5) {
-                UsageBar(label: "5h", percent: usage.fiveHour ?? 0, expired: usage.fiveHourExpired)
-                UsageBar(label: "7d", percent: usage.sevenDay ?? 0, expired: usage.sevenDayExpired)
+                ForEach(windows, id: \.self) { w in
+                    UsageBar(label: w.label, percent: w.percent, expired: w.expired, resetsAt: w.resetsAt,
+                             reservesReset: reservesReset, labelWidth: labelWidth)
+                }
                 if stale {
                     HStack(spacing: 4) {
                         Image(systemName: "clock")

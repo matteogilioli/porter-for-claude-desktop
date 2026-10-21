@@ -131,7 +131,7 @@ Porter solo cierra un Claude Desktop abierto con `--restart` (después lo vuelve
 ## Conviene saber
 
 - **Deshacer:** cada cambio empieza con una copia de seguridad en `~/Library/Application Support/Porter/backups`. Para deshacer un movimiento, cierra Claude Desktop y copia los archivos guardados a la ruta indicada en el `README.txt` de la copia.
-- **Los datos de uso** provienen de lo que Claude Desktop registra, algo que hace de vez en cuando mientras usas una cuenta. Porter muestra la antigüedad de cada valor.
+- **Los datos de uso** provienen de lo que Claude Desktop registra, algo que hace de vez en cuando mientras usas una cuenta. Porter muestra la antigüedad de cada valor. Con **Uso en tiempo real** activado (en las opciones), Porter pide los datos a claude.ai cada pocos minutos, con la sesión de cada perfil, y muestra también cuándo se restablece cada límite y los límites de un solo modelo, como Fable. macOS pide una vez permiso para que Porter use la clave que Claude guarda en el Llavero.
 - **Un lugar a la vez:** no sigas trabajando en la misma sesión desde dos cuentas a la vez. Por eso mover archiva el original; usa Copiar cuando de verdad quieras dos sesiones independientes.
 - Usa solo cuentas que sean tuyas y respeta las condiciones de tu plan de Claude.
 

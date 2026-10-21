@@ -264,6 +264,9 @@ private struct StoreSummary: View {
                     .foregroundStyle(Theme.secondary)
                     .lineLimit(1)
                     .truncationMode(.middle)
+                    // Closer to the title it belongs to, further from the usage below.
+                    .padding(.top, -7)
+                    .padding(.bottom, 4)
             }
             if store.isSignedIn { UsageBars(usage: store.usage) }
             HStack(spacing: 6) {

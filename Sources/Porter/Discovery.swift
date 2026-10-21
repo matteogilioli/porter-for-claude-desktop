@@ -352,16 +352,16 @@ enum Discovery {
 
     // MARK: - Account names
 
-    /// The desktop app does not store account emails in plain files; we use the Claude Code CLI login
-    /// (~/.claude.json) when it matches, or a short UUID.
+    /// The desktop app does not store account emails in plain files; we remember those found in its
+    /// claude.ai cache and in the Claude Code CLI login (~/.claude.json), or use a short UUID.
     static func accountName(_ uuid: String) -> String {
         knownAccountName(uuid) ?? tr("Account %@", String(uuid.prefix(8)))
     }
 
-    /// The CLI login email, if it is this account.
+    /// The email of this account, if it was ever found.
     static func knownAccountName(_ uuid: String) -> String? {
-        guard let login = cliLogin(), login.uuid == uuid else { return nil }
-        return login.email
+        if let login = cliLogin(), login.uuid == uuid { return login.email }
+        return Settings.accountEmails[uuid]
     }
 
     private static var cliLoginCache: (modified: timespec, login: (uuid: String, email: String)?)?
@@ -382,9 +382,41 @@ enum Discovery {
         if let oauth = JSONPeek.read(path, keys: ["oauthAccount"])?["oauthAccount"] as? [String: Any],
            let uuid = oauth["accountUuid"] as? String, let email = oauth["emailAddress"] as? String {
             login = (uuid, email)
+            if Settings.accountEmails[uuid] != email { Settings.accountEmails[uuid] = email }
         }
         cliLoginCache = (modified, login)
         return login
+    }
+
+    private static let emailMarker = Data("\"\u{0D}email_address\"".utf8)
+
+    /// Learns the email of the account signed in to `dir`, once. The claude.ai page keeps its query
+    /// cache in IndexedDB, serialized by V8 (strings are `"`, a length byte, the bytes) and stored as
+    /// blob files that are rewritten often; its `account` entry has `uuid` right before `email_address`.
+    static func learnEmail(in dir: DataDir, account: String?) {
+        guard let account, Settings.accountEmails[account] == nil else { return }
+        let root = dir.path + "/IndexedDB/https_claude.ai_0.indexeddb.blob"
+        guard let files = FileManager.default.enumerator(atPath: root) else { return }
+        var found: [String: String] = [:]
+        for case let file as String in files {
+            guard let data = FileManager.default.contents(atPath: root + "/" + file) else { continue }
+            var from = data.startIndex
+            while let marker = data.range(of: emailMarker, in: from..<data.endIndex) {
+                from = marker.upperBound
+                // `"$` and the 36-character uuid, then the marker; the email follows it.
+                let uuidStart = marker.lowerBound - 36
+                guard uuidStart - 2 >= data.startIndex, data[uuidStart - 2] == 0x22, data[uuidStart - 1] == 36,
+                      marker.upperBound < data.endIndex else { continue }
+                let length = Int(data[marker.upperBound])
+                let emailStart = marker.upperBound + 1
+                guard length < 0x80, emailStart + length <= data.endIndex,
+                      let uuid = String(data: data[uuidStart..<marker.lowerBound], encoding: .ascii),
+                      let email = String(data: data[emailStart..<emailStart + length], encoding: .utf8),
+                      email.contains("@") else { continue }
+                found[uuid] = email
+            }
+        }
+        if !found.isEmpty { Settings.accountEmails.merge(found) { _, new in new } }
     }
 
     static func orgName(_ uuid: String) -> String { tr("Org %@", String(uuid.prefix(8))) }
@@ -449,6 +481,12 @@ enum Settings {
     static var profileNames: [String: String] {
         get { defaults.dictionary(forKey: "profileNames") as? [String: String] ?? [:] }
         set { defaults.set(newValue, forKey: "profileNames") }
+    }
+
+    /// Emails of the accounts seen in Claude's cache or the Claude Code CLI login: account UUID → email.
+    static var accountEmails: [String: String] {
+        get { defaults.dictionary(forKey: "accountEmails") as? [String: String] ?? [:] }
+        set { defaults.set(newValue, forKey: "accountEmails") }
     }
 
     /// Claude profiles created from this app: data folder path → name.

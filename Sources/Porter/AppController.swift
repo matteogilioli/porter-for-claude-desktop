@@ -23,6 +23,7 @@ struct Snapshot {
             autoreleasepool {
                 let signedIn = Discovery.signedInAccount(in: dir)
                 snapshot.signedIn[dir.path] = signedIn
+                Discovery.learnEmail(in: dir, account: signedIn)
                 snapshot.stores += Discovery.stores(in: dir, signedIn: signedIn)
             }
         }
@@ -258,7 +259,7 @@ final class AppController: NSObject, ObservableObject {
     func isMissing(_ project: PickerProject) -> Bool { snapshot.missingProjects.contains(project.path) }
 
     func profileTitle(_ dir: DataDir) -> String {
-        dir.isDefault ? tr("Claude (default)") : dir.label
+        dir.isDefault && Settings.profileNames[dir.path] == nil ? tr("Claude (default)") : dir.label
     }
 
     func openAppTitle(_ dir: DataDir) -> String {

@@ -89,9 +89,12 @@ enum LiveUsage {
                 func percent(_ window: String) -> Int? {
                     ((json[window] as? [String: Any])?["utilization"] as? Double).map { Int($0.rounded(.down)) }
                 }
-                result = .success(Sample(org: org, usage: Usage(fiveHour: percent("five_hour"), sevenDay: percent("seven_day"),
-                                                                sampledAt: Date(), limits: limits(json["limits"])),
-                                         response: data))
+                var usage = Usage(fiveHour: percent("five_hour"), sevenDay: percent("seven_day"),
+                                  sampledAt: Date(), limits: limits(json["limits"]))
+                // A member without a seat gets every window as null and no limits ("unassigned_seat"):
+                // that is not 0%.
+                usage.noSeat = usage.fiveHour == nil && usage.sevenDay == nil && usage.limits.isEmpty
+                result = .success(Sample(org: org, usage: usage, response: data))
             case 401, 403:
                 result = .failure(.signedOut)
             default:

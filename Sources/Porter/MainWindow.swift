@@ -892,6 +892,7 @@ private struct MoveSheet: View {
     @ViewBuilder private func warnings(_ plan: MovePlan, _ target: Store) -> some View {
         let lines = [
             target.usage?.exhausted == true ? tr("⚠︎ The destination account has reached a usage limit too.") : nil,
+            target.usage?.noSeat == true ? tr("⚠︎ The destination account has no license in this organization: it cannot use Claude.") : nil,
             target.isSignedIn ? nil : tr("The destination account is not signed in: sessions appear once you sign in to it."),
             plan.upToDate.isEmpty ? nil
                 : mode == .move ? tr("%ld already up to date in the destination.", plan.upToDate.count)

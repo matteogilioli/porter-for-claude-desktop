@@ -16,6 +16,8 @@ struct Usage {
     /// Every limit claude.ai reports (the session, the week, the week of one model…), with when it
     /// resets. Empty for usage read from Claude Desktop's file, which only has the first two.
     var limits: [Limit] = []
+    /// claude.ai says the account has no seat (license) in the organization: no limits, and no use of Claude.
+    var noSeat = false
 
     struct Limit: Hashable {
         let label: String
@@ -33,6 +35,7 @@ struct Usage {
     }
 
     var windows: [Window] {
+        if noSeat { return [] }
         if !limits.isEmpty {
             return limits.map { Window(label: $0.label, percent: $0.percent, resetsAt: $0.resetsAt,
                                        expired: $0.resetsAt.map { $0 < Date() } ?? false) }

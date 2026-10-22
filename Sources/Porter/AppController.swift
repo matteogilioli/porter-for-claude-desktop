@@ -50,6 +50,7 @@ struct Snapshot {
             h.combine(store.usage?.sevenDay)
             h.combine(store.usage?.sampledAt)
             h.combine(store.usage?.limits)
+            h.combine(store.usage?.noSeat)
             for s in store.sessions {
                 h.combine(s.id); h.combine(s.title); h.combine(s.error); h.combine(s.lastActivity); h.combine(s.isArchived)
                 h.combine(s.cwd); h.combine(s.runCwd); h.combine(s.environmentId); h.combine(s.cliSessionId)
@@ -296,7 +297,7 @@ final class AppController: NSObject, ObservableObject {
     /// A signed-in account with usage left is the natural destination.
     func bestTarget(for source: Store) -> Store? {
         let all = targets(for: source)
-        return all.first { $0.isSignedIn && $0.usage?.exhausted != true } ?? all.first { $0.isSignedIn } ?? all.first
+        return all.first { $0.isSignedIn && $0.usage?.exhausted != true && $0.usage?.noSeat != true } ?? all.first { $0.isSignedIn } ?? all.first
     }
 
     // MARK: - Actions

@@ -42,7 +42,7 @@ enum CLI {
                   + (store.isSignedIn ? " (signed in)" : "")
                   + " · \(store.open.count) open, \(store.archived.count) archived, \(store.stopped.count) stopped by limit"
                   + (store.usage.map { usage in
-                      " · " + usage.windows.map { w in
+                      usage.noSeat ? " · no license" : " · " + usage.windows.map { w in
                           "\(w.label) \(w.percent)%" + (w.resetsAt.map { " (resets \($0.formatted(date: .abbreviated, time: .shortened)))" } ?? "")
                       }.joined(separator: " ") + " as of \(usage.sampledAt.formatted(date: .omitted, time: .shortened))"
                   } ?? ""))

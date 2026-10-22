@@ -153,14 +153,19 @@ struct UsageBar: View {
     }
 }
 
-/// Both usage windows, or a quiet note when the app has none recorded. `compact` puts them side by
-/// side, without the note on old data (it is still faded).
+/// Both usage windows, or a quiet note when the app has none recorded or the account has no seat.
+/// `compact` puts them side by side, without the note on old data (it is still faded).
 struct UsageBars: View {
     let usage: Usage?
     var compact = false
 
     var body: some View {
-        if let usage, compact {
+        if let usage, usage.noSeat {
+            Text(tr("No license"))
+                .font(.system(size: 11))
+                .foregroundStyle(Theme.orange)
+                .help(tr("claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude."))
+        } else if let usage, compact {
             // The session and the week; limits of one model only fit the full version.
             HStack(spacing: 8) {
                 ForEach(usage.windows.prefix(2), id: \.self) { w in

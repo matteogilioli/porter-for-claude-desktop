@@ -30,6 +30,9 @@ enum Localization {
     // MARK: - Italian
 
     static let it: [String: String] = [
+        "No license": "Nessuna licenza",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ L'account di destinazione non ha una licenza in questa organizzazione: non può usare Claude.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai non riporta alcun posto per questo account nell'organizzazione: non ha limiti di utilizzo perché non può usare Claude.",
         "Check for Updates Automatically": "Verifica aggiornamenti automaticamente",
         "Check for Updates…": "Verifica aggiornamenti…",
         "%ld already up to date in the destination.": "%ld già aggiornate nella destinazione.",
@@ -215,6 +218,9 @@ enum Localization {
     // MARK: - Spanish
 
     static let es: [String: String] = [
+        "No license": "Sin licencia",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ La cuenta de destino no tiene licencia en esta organización: no puede usar Claude.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai no indica ningún puesto para esta cuenta en la organización: no tiene límites de uso porque no puede usar Claude.",
         "Check for Updates Automatically": "Buscar actualizaciones automáticamente",
         "Check for Updates…": "Buscar actualizaciones…",
         "%ld already up to date in the destination.": "%ld ya están al día en el destino.",
@@ -400,6 +406,9 @@ enum Localization {
     // MARK: - French
 
     static let fr: [String: String] = [
+        "No license": "Aucune licence",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ Le compte de destination n'a pas de licence dans cette organisation : il ne peut pas utiliser Claude.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai n'indique aucun siège pour ce compte dans l'organisation : il n'a pas de limites d'utilisation car il ne peut pas utiliser Claude.",
         "Check for Updates Automatically": "Rechercher les mises à jour automatiquement",
         "Check for Updates…": "Rechercher les mises à jour…",
         "%ld already up to date in the destination.": "%ld déjà à jour dans la destination.",
@@ -585,6 +594,9 @@ enum Localization {
     // MARK: - German
 
     static let de: [String: String] = [
+        "No license": "Keine Lizenz",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ Das Zielkonto hat in dieser Organisation keine Lizenz: Es kann Claude nicht nutzen.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai meldet für dieses Konto keinen Platz in der Organisation: Es hat keine Nutzungslimits, weil es Claude nicht nutzen kann.",
         "Check for Updates Automatically": "Automatisch nach Updates suchen",
         "Check for Updates…": "Nach Updates suchen…",
         "%ld already up to date in the destination.": "%ld sind im Ziel bereits aktuell.",
@@ -770,6 +782,9 @@ enum Localization {
     // MARK: - Portuguese (Brazil)
 
     static let ptBR: [String: String] = [
+        "No license": "Sem licença",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ A conta de destino não tem licença nesta organização: ela não pode usar o Claude.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "O claude.ai não informa nenhuma vaga para esta conta na organização: ela não tem limites de uso porque não pode usar o Claude.",
         "Check for Updates Automatically": "Procurar atualizações automaticamente",
         "Check for Updates…": "Procurar atualizações…",
         "%ld already up to date in the destination.": "%ld já estão atualizadas no destino.",
@@ -955,6 +970,9 @@ enum Localization {
     // MARK: - Chinese (Simplified)
 
     static let zhHans: [String: String] = [
+        "No license": "无许可",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ 目标账户在此组织中没有许可：无法使用 Claude。",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai 显示此账户在该组织中没有席位：它没有用量限额，因为无法使用 Claude。",
         "Check for Updates Automatically": "自动检查更新",
         "Check for Updates…": "检查更新…",
         "%ld already up to date in the destination.": "%ld 个在目标位置已是最新。",
@@ -1140,6 +1158,9 @@ enum Localization {
     // MARK: - Japanese
 
     static let ja: [String: String] = [
+        "No license": "ライセンスなし",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ 移動先のアカウントはこの組織でライセンスがありません。Claude を使用できません。",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai によると、このアカウントには組織内のシートがありません。Claude を使用できないため、使用量の上限もありません。",
         "Check for Updates Automatically": "アップデートを自動的に確認",
         "Check for Updates…": "アップデートを確認…",
         "%ld already up to date in the destination.": "%ld 件は移動先ですでに最新です。",
@@ -1325,6 +1346,9 @@ enum Localization {
     // MARK: - Korean
 
     static let ko: [String: String] = [
+        "No license": "라이선스 없음",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ 대상 계정은 이 조직에 라이선스가 없어 Claude를 사용할 수 없습니다.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai에 따르면 이 계정은 조직에 좌석이 없습니다. Claude를 사용할 수 없으므로 사용량 한도도 없습니다.",
         "Check for Updates Automatically": "자동으로 업데이트 확인",
         "Check for Updates…": "업데이트 확인…",
         "%ld already up to date in the destination.": "%ld개는 대상에서 이미 최신 상태입니다.",
@@ -1510,6 +1534,9 @@ enum Localization {
     // MARK: - Russian
 
     static let ru: [String: String] = [
+        "No license": "Нет лицензии",
+        "⚠︎ The destination account has no license in this organization: it cannot use Claude.": "⚠︎ У учётной записи назначения нет лицензии в этой организации: она не может использовать Claude.",
+        "claude.ai reports no seat for this account in the organization: it has no usage limits because it cannot use Claude.": "claude.ai не сообщает о месте для этой учётной записи в организации: у неё нет лимитов использования, потому что она не может использовать Claude.",
         "Check for Updates Automatically": "Проверять обновления автоматически",
         "Check for Updates…": "Проверить обновления…",
         "%ld already up to date in the destination.": "Уже актуальны в месте назначения: %ld.",
